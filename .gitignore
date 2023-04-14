@@ -15,7 +15,6 @@ yarn-error.log
 /.idea
 /.vscode
 /resources/views/front/pages/home/slider.blade.php
-/resources/views/front/layout/
 /resources/views/front/layout/bottom.blade.php
 storage/_office.json
 resources/views/theme1/includes/meta.blade.php
