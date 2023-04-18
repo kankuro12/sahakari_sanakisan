@@ -1,4 +1,7 @@
 @extends('front.layout.app')
+@section('meta')
+
+@endsection
 @section('content')
     @includeIf('front.pages.home.slider')
     @includeIf('front.pages.home.about')

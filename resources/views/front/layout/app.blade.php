@@ -6,6 +6,7 @@
     <title>{{env('APP_NAME',"")}} @yield('title')</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
+    @yield('meta')
 
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
