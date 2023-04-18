@@ -32,14 +32,19 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <h3 class="mb-4">25 Years Of Experience In Financial Support</h3>
-                                    <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu
-                                        diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit
-                                        clita duo justo erat amet.</p>
-                                    <p><i class="fa fa-check text-primary me-3"></i>Secured Loans</p>
-                                    <p><i class="fa fa-check text-primary me-3"></i>Credit Facilities</p>
-                                    <p><i class="fa fa-check text-primary me-3"></i>Cash Advanced</p>
-                                    <a href="" class="btn btn-primary py-3 px-5 mt-3">Read More</a>
+                                    <h3 class="mb-4">{{$serviceType->home_title}}</h3>
+                                    <p class="mb-4">{{$serviceType->home_desc}}</p>
+
+                                    @foreach ($services->where('service_type_id',$serviceType->id) as $service)
+                                        <p>
+                                            <i class="fa fa-check text-primary me-3"></i>
+                                            <a href="{{route('service.single',['service'=>$service->id])}}">{{$service->name}}</a>
+                                        </p>
+
+                                    @endforeach
+
+
+                                    <a href="{{route('service.types')}}" class="btn btn-primary py-3 px-5 mt-3">Read More</a>
                                 </div>
                             </div>
                         </div>

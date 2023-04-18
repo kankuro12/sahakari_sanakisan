@@ -11,6 +11,7 @@ use App\Models\Gallery;
 use App\Models\GalleryType;
 use App\Models\Page;
 use App\Models\Popup;
+use App\Models\Service;
 use App\Models\Team;
 use App\Models\TeamType;
 use Carbon\Carbon;
@@ -24,6 +25,20 @@ class HomeController extends Controller
     {
         return view('front.pages.index');
     }
+
+    public function serviceTypes()
+    {
+        return view('front.pages.service.type');
+    }
+
+    public function serviceSingle($service)
+    {
+        $services=collect(DB::select('select * from services where service_type_id = (select service_type_id from services where id=?)',[$service]));
+        dd($services);
+        return view('front.pages.service.single',compact('service'));
+    }
+
+
 
 
 }

@@ -44,3 +44,4 @@ function getGroupedSetting($key,$direct=true){
     });
 
 }
+

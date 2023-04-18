@@ -19,3 +19,4 @@ yarn-error.log
 storage/_office.json
 resources/views/theme1/includes/meta.blade.php
 resources/views/front/pages/home/service.blade.php
+resources/views/front/pages/partials/service.blade.php
