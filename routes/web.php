@@ -110,6 +110,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
                 Route::match(['get', 'post'], 'add', [ServiceController::class, 'addType'])->name('add');
                 Route::match(['get', 'post'], 'edit/{type}', [ServiceController::class, 'editType'])->name('edit');
                 Route::match(['get', 'post'], 'del/{type}', [ServiceController::class, 'delType'])->name('del');
+                Route::match(['get', 'post'], 'render', [ServiceController::class, 'render'])->name('render');
             });
             Route::get('manage/{type}', [ServiceController::class, 'index'])->name('index');
             Route::match(['get', 'post'], 'add/@{type}', [ServiceController::class, 'add'])->name('add');

@@ -32,6 +32,7 @@ class ServiceController extends Controller
             $type->home_title = $request->home_title;
             $type->home_tiles = $request->home_tiles;
             $type->save();
+            $this->render();
 
             return redirect()->back()->with('message', 'Service Type Added Sucessfully');
         }else{
@@ -52,6 +53,7 @@ class ServiceController extends Controller
             $type->home_title = $request->home_title;
             $type->home_tiles = $request->home_tiles;
             $type->save();
+            $this->render();
 
             return redirect()->back()->with('message', 'Service Type Updated Sucessfully');
         }else{
@@ -63,6 +65,8 @@ class ServiceController extends Controller
     {
 
         $type->delete();
+        $this->render();
+
         return redirect()->back()->with('message', 'Service Type Deleted Sucessfully');
     }
 
@@ -98,6 +102,7 @@ class ServiceController extends Controller
             }
             $service->short_desc = $request->short_desc??"";
             $service->save();
+
             return response()->json(['status' => true]);
         } else {
             return view('admin.service.edit', compact('service'));
@@ -109,6 +114,12 @@ class ServiceController extends Controller
         $service->delete();
         return redirect()->back()->with('message', 'Service Deleted Sucessfully');
 
+
+    }
+
+    public function render(){
+        $serviceTypes=DB::table('service_types')->get();
+        file_put_contents( resource_path('views/front/pages/home/service.blade.php'),view('admin.service.template',compact('serviceTypes'))->render());
 
     }
 }

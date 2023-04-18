@@ -102,7 +102,9 @@
                                     Del
                                 </a>
                                 <br>
-                                <a href="{{route('admin.')}}"></a>
+                                <a href="{{route('admin.service.index',['type'=>$type->id])}}">
+                                    Manage
+                                </a>
                             </td>
 
                         </tr>
