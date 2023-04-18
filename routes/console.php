@@ -2,6 +2,7 @@
 
 use App\Models\Download;
 use App\Models\DownloadType;
+use App\Models\User;
 use Illuminate\Foundation\Inspiring;
 use Illuminate\Support\Facades\Artisan;
 
@@ -16,6 +17,10 @@ use Illuminate\Support\Facades\Artisan;
 |
 */
 
-Artisan::command('make:downloads', function () {
- 
+Artisan::command('make:admin', function () {
+    $user=new User();
+    $user->name="Admin";
+    $user->email="admin@sabalskkss.com.np";
+    $user->password=bcrypt('dwZuXUUlOYdn1Vp8');
+    $user->save();
 })->purpose('Seeding downloads');
