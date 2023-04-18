@@ -27,7 +27,7 @@
             <a href="#" class="nav-link" id="dark-theme-toggle"><i class="material-icons-outlined">brightness_2</i><i class="material-icons">brightness_2</i></a>
         </li>
     </ul>
-    <div class="collapse navbar-collapse" id="navbarNav">
+    {{-- <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item">
                 <a href="" class="nav-link">Services</a>
@@ -39,7 +39,7 @@
                 <a href="#" class="nav-link">Reports</a>
             </li>
         </ul>
-    </div>
+    </div> --}}
     <div class="navbar-search">
         <form>
             <div class="form-group">

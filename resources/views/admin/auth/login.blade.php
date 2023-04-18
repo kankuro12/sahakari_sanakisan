@@ -49,7 +49,7 @@
                     <div class="auth-form">
                         <div class="row">
                             <div class="col">
-                                <div class="logo-box"><a href="#" class="logo-text">Connect</a></div>
+                                <div class="logo-box"><a href="/" class="logo-text">>{{env('APP_NAME')}}</a></div>
                                 @if ($errors->any())
                                     <div class="py-4">
                                         <div class="alert alert-danger">
