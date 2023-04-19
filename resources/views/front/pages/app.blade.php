@@ -3,8 +3,9 @@
     @yield('pagecss')
 @endsection
 @section('content')
-       <!-- Page Header Start -->
-       <div class="container-fluid page-header mb-5 wow fadeIn" data-wow-delay="0.1s" style="background-image: url('{{asset('uploads/header.jpg')}}') !important">
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header mb-5 wow fadeIn" data-wow-delay="0.1s"
+        style="background-image: url('{{ asset('uploads/header.jpg') }}') !important">
         <div class="container">
             <h1 class="display-3 mb-4 animated slideInDown">@yield('b-title')</h1>
             <nav aria-label="breadcrumb animated slideInDown">

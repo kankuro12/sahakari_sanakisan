@@ -39,17 +39,15 @@
             line-height: 1.5rem;
         }
 
-        .service-detail{
-
-        }
+        .service-detail {}
 
 
-        @media(max-width:425px){
-            .service-title{
+        @media(max-width:425px) {
+            .service-title {
                 text-align: center;
             }
 
-            .similar{
+            .similar {
                 text-align: center;
             }
         }
@@ -60,7 +58,6 @@
 @endsection
 @section('title')
     Services - {{ $service->name }}
-
 @endsection
 @section('pagecontent')
     <div>
@@ -69,7 +66,7 @@
                 <img src="{{ asset($service->logo) }}" alt="" class="w-100">
             </div>
             <div class="col-md-7 mt-3 service-detail">
-                <h2 class="service-title"> {{$service->name}}</h2>
+                <h2 class="service-title"> {{ $service->name }}</h2>
                 {!! $service->desc !!}
             </div>
 
@@ -79,21 +76,20 @@
                 </h4>
 
                 @foreach ($services->where('id', '!=', $service->id) as $ser)
-                        <a class="shadow p-3 service" href="{{route('service.single',['service'=>$ser->id])}}">
+                    <a class="shadow p-3 service" href="{{ route('service.single', ['service' => $ser->id]) }}">
 
-                            <div>
-                                <img src="{{asset($ser->logo)}}"
-                                    alt="" class="img">
-                            </div>
-                            <h4 class="name mt-3">
-                                {{$ser->name}}
-                            </h4>
-                            <p class="desc mb-3">
-                                {{$ser->short_desc}}
-                            </p>
-                        </a>
-                </div>
+                        <div>
+                            <img src="{{ asset($ser->logo) }}" alt="" class="img">
+                        </div>
+                        <h4 class="name mt-3">
+                            {{ $ser->name }}
+                        </h4>
+                        <p class="desc mb-3">
+                            {{ $ser->short_desc }}
+                        </p>
+                    </a>
                 @endforeach
+            </div>
         </div>
     </div>
 @endsection
