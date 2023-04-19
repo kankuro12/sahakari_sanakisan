@@ -58,6 +58,10 @@
 @section('b-title')
     Services - {{ $service->name }}
 @endsection
+@section('title')
+    Services - {{ $service->name }}
+
+@endsection
 @section('pagecontent')
     <div>
         <div class="row">

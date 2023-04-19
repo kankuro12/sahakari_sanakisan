@@ -7,6 +7,12 @@ use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
+    public function upload(Request $request)
+    {
+        // dd($request->allFiles());
+        $data=$request->allFiles()['file']->store('uploads/tiny');
+        return response(asset($data));
+    }
     public function index(){
         return view('admin.dashboard.index');
 

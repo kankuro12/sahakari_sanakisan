@@ -12,13 +12,14 @@ use Illuminate\Support\Facades\DB;
 
 class PageController extends Controller
 {
+
     //
     public function index($type)
     {
         $pages=DB::table('pages')->where('type',$type)->select(['id','title'])->get();
         $pageType=Data::pageTypes[$type];
         return view('admin.page.index',compact('type','pages','pageType'));
-        
+
     }
 
     public function add($type,Request $request){
@@ -46,7 +47,7 @@ class PageController extends Controller
                 $page->image='';
             }
             $page->save();
-           
+
             $files=[];
             if ($request->filled('docs')) {
                 foreach ($request->docs as $key => $doc) {
@@ -60,7 +61,7 @@ class PageController extends Controller
                     }
                 }
             }
-      
+
             return redirect()->back()->with('message',"{$pageType[0]} Added Sucessfully");
         }else{
             return view('admin.page.add',compact('type','pageType'));
@@ -88,7 +89,7 @@ class PageController extends Controller
                 $page->image=$request->photo->store('uploads/page/'.Carbon::now()->format('Y/m/d'));
             }
             $page->save();
-           
+
             $files=[];
             if ($request->filled('docs')) {
                 foreach ($request->docs as $key => $doc) {
@@ -116,9 +117,14 @@ class PageController extends Controller
         return redirect()->back()->with('message',"{$pageType[0]} Deleted Sucessfully");
 
     }
-    public function delDoc(Request $request)            
+    public function delDoc(Request $request)
     {
         $file=PageUpload::find($request->id);
         $file->delete();
+    }
+
+    public function notice($type)
+    {
+        # code...
     }
 }

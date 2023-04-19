@@ -67,6 +67,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         route::match(['GET', 'POST'], 'login', [AuthController::class, 'login'])->name('login');
     });
     Route::middleware(['auth', 'role:1'])->group(function () {
+        Route::match(['GET', 'POST'], 'upload', [DashboardController::class, 'upload'])->name('upload');
 
         Route::prefix('dashboard')->name('dashboard.')->group(function () {
             Route::match(['GET', 'POST'], '', [DashboardController::class, 'index'])->name('index');

@@ -1,9 +1,32 @@
 <?php
 
 use App\Models\Setting;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 
 $defaults=["asdf","asdfs"];
+$imageExtensions = array(
+    'jpg',
+    'jpeg',
+    'png',
+    'gif',
+    'bmp',
+    'webp',
+    'svg',
+    'ico',
+    'tif',
+    'tiff',
+    'jif',
+    'jfif',
+    'jp2',
+    'jpx',
+    'j2k',
+    'j2c',
+    'xbm',
+    'wbmp',
+    'bmp',
+    'dib'
+);
 function def($name)  {
     return \App\Data::data[$name];
 }
@@ -45,3 +68,64 @@ function getGroupedSetting($key,$direct=true){
 
 }
 
+
+function makeDate($d){
+    $n=Carbon::parse($d);
+    return $n->format('Y-m-d');
+}
+
+function createMeta($data) {
+    $meta = '<meta name="description" content="' . $data->short_desc . '">';
+
+    if (!empty($data->title)) {
+        $meta .= '<meta property="og:title" content="' . $data->title . '">';
+        $meta .= '<meta name="twitter:title" content="' . $data->title . '">';
+    }
+
+    if (!empty($data->desc)) {
+        $meta .= '<meta property="og:description" content="' . strip_tags($data->desc) . '">';
+        $meta .= '<meta name="twitter:description" content="' . strip_tags($data->desc) . '">';
+    } else {
+        $meta .= '<meta property="og:description" content="' . $data->short_desc . '">';
+        $meta .= '<meta name="twitter:description" content="' . $data->short_desc . '">';
+    }
+
+    if (!empty($data->image)) {
+        $meta .= '<meta property="og:image" content="' . $data->image . '">';
+        $meta .= '<meta name="twitter:image" content="' . $data->image . '">';
+    }
+
+    $meta .= '<meta property="og:type" content="article">';
+
+    return $meta;
+}
+
+
+function isImageFile($fileName) {
+    $imageExtensions = array(
+        'jpg',
+        'jpeg',
+        'png',
+        'gif',
+        'bmp',
+        'webp',
+        'svg',
+        'ico',
+        'tif',
+        'tiff',
+        'jif',
+        'jfif',
+        'jp2',
+        'jpx',
+        'j2k',
+        'j2c',
+        'xbm',
+        'wbmp',
+        'bmp',
+        'dib'
+    );
+
+    $fileExtension = pathinfo($fileName, PATHINFO_EXTENSION);
+
+    return in_array(strtolower($fileExtension), $imageExtensions);
+}
