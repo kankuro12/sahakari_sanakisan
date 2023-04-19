@@ -43,9 +43,9 @@ class HomeController extends Controller
 
     public function pageType($type)
     {
-        $pages=DB::table('pages')->where('type',$type)->paginate(10);
         switch ($type) {
             case 'not':
+                $pages=DB::table('pages')->where('type',$type)->orderBy('created_at','desc')->paginate(10);
                 return view('front.pages.not.list',['notices'=>$pages]);
                 break;
             default:
