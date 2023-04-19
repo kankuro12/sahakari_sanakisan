@@ -34,8 +34,8 @@ class HomeController extends Controller
     public function serviceSingle($service)
     {
         $services=collect(DB::select('select * from services where service_type_id = (select service_type_id from services where id=?)',[$service]));
-        dd($services);
-        return view('front.pages.service.single',compact('service'));
+        $service=  $services->where('id',$service)->first();
+        return view('front.pages.service.single',compact('service','services'));
     }
 
 

@@ -60,6 +60,8 @@ Route::prefix('student')->name('student.')->group(function () {
     Route::match(['GET', 'POST'], '/@{email}', [StudentDashboardController::class, 'show'])->name('show');
 });
 
+Route::redirect('login', '/admin/login', 301)->name('login');
+
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::middleware('guest')->group(function () {
         route::match(['GET', 'POST'], 'login', [AuthController::class, 'login'])->name('login');

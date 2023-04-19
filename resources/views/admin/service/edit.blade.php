@@ -95,6 +95,8 @@
                     ' searchreplace table template  visualblocks wordcount '
                 ],
                 toolbar_mode: 'floating',
+                toolbar: "fontselect formatselect fontsizeselect forecolor backcolor image table visualblocks anchor  blocks",
+
 
             });
             $('#edit-service').submit(function (e) {
