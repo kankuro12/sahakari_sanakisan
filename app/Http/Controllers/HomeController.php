@@ -51,6 +51,7 @@ class HomeController extends Controller
 
                 return view('front.pages.about.list');
                 break;
+
             default:
                 # code...
                 break;

@@ -23,4 +23,7 @@ resources/views/front/pages/home/about.blade.php
 resources/views/front/pages/home/facts.blade.php
 resources/views/front/pages/home/features.blade.php
 resources/views/front/pages/home/notice.blade.php
+resources/views/front/pages/home/board.blade.php
 resources/views/front/pages/partials/service.blade.php
+resources/views/front/pages/partials/about.blade.php
+resources/views/front/pages/partials/team.blade.php
