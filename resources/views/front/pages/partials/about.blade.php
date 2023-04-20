@@ -32,34 +32,49 @@
     Know More About Us
 </h1>
 <div class="row">
-        <div class="col-md-4 mb-4">
-        <a href="http://localhost:8000/page/8">
+            <div class="col-md-4 mb-4">
+            <a href="http://localhost:8000/page/11">
 
-            <div class="shadow mb-2">
-                <div class="about-image single-about ">
-                    <img src="http://localhost:8000/uploads/page/2023/04/20/ILsSJgVpoX18nrR235k2J8sPoz1GizQeCImYrUSH.png" alt="" class="h-100">
+                <div class="shadow mb-2">
+                    <div class="about-image single-about ">
+                        <img src="http://localhost:8000/uploads/page/2023/04/20/RjCu43XReMCyKc9FcFw1dzs5nVw40dcT7lK5poDL.png" alt="" class="h-100">
+                    </div>
                 </div>
-            </div>
-            <div class="p-2">
-                <h5>
-                    sdfasd
-                </h5>
-            </div>
-        </a>
-    </div>
-        <div class="col-md-4 mb-4">
-        <a href="http://localhost:8000/page/1">
+                <div class="p-2">
+                    <h5>
+                        sdfg
+                    </h5>
+                </div>
+            </a>
+        </div>
+            <div class="col-md-4 mb-4">
+            <a href="http://localhost:8000/page/8">
 
-            <div class="shadow mb-2">
-                <div class="about-image single-about ">
-                    <img src="http://localhost:8000/uploads/page/2023/04/18/ibYSTrOdVLWwfBdtTlBsRTWOvgaf90s3m5i8BK3X.jpg" alt="" class="h-100">
+                <div class="shadow mb-2">
+                    <div class="about-image single-about ">
+                        <img src="http://localhost:8000/uploads/page/2023/04/20/ILsSJgVpoX18nrR235k2J8sPoz1GizQeCImYrUSH.png" alt="" class="h-100">
+                    </div>
                 </div>
-            </div>
-            <div class="p-2">
-                <h5>
-                    sdfasd
-                </h5>
-            </div>
-        </a>
-    </div>
+                <div class="p-2">
+                    <h5>
+                        sdfasd
+                    </h5>
+                </div>
+            </a>
+        </div>
+            <div class="col-md-4 mb-4">
+            <a href="http://localhost:8000/page/1">
+
+                <div class="shadow mb-2">
+                    <div class="about-image single-about ">
+                        <img src="http://localhost:8000/uploads/page/2023/04/18/ibYSTrOdVLWwfBdtTlBsRTWOvgaf90s3m5i8BK3X.jpg" alt="" class="h-100">
+                    </div>
+                </div>
+                <div class="p-2">
+                    <h5>
+                        sdfasd
+                    </h5>
+                </div>
+            </a>
+        </div>
     </div>

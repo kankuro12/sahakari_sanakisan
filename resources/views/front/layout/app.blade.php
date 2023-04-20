@@ -63,7 +63,11 @@
     </div>
     <!-- Spinner End -->
 
-    @includeIf('front.layout.menu')
+
+    <div class="container-fluid fixed-top px-0 wow fadeIn" data-wow-delay="0.1s">
+        @includeIf('front.includes.top')
+        @includeIf('front.layout.menu')
+    </div>
 
     @yield('content')
 

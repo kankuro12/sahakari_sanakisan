@@ -143,7 +143,9 @@ class PageController extends Controller
                 $mainMsg = getSetting('main_msg') ?? -1;
 
                 $data = DB::table('pages')->where('id', $mainMsg)->first();
-                $data->desc = json_decode($data->desc);
+                if($data!=null){
+                    $data->desc = json_decode($data->desc);
+                }
                 // dd($data);
                 $abouts = DB::table('pages')->where('type', $type)->orderBy('created_at', 'desc')->paginate(10);
                 file_put_contents( resource_path('views/front/pages/partials/about.blade.php'),view('admin.page.template.about',compact('abouts','data'))->render());

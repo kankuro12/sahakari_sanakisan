@@ -22,6 +22,10 @@ class SettingController extends Controller
                 ['email', 1],
                 ['logo', 0],
                 ['fabicon', 0],
+            ],
+            [
+                ["top", "views/front/includes/top.blade.php"],
+                ["icon", "views/front/includes/icon.blade.php"],
             ]
         ],
         'social' => [

@@ -10,6 +10,7 @@
             border-radius: 5px;
             align-items: center;
             justify-content: center;
+            overflow: hidden;
         }
     </style>
     <div class="container">
@@ -21,6 +22,20 @@
         </h3>
         <div>
             <div class="row">
+                                    <div class="col-md-4 mb-4">
+                        <a class="home-news" href="http://localhost:8000/page/12">
+                            <div class="image mb-2">
+                                <img class="h-100" src="http://localhost:8000/uploads/page/2023/04/20/zaC6dVQjRwEPkIyMW2u7OiiA5SEPtgyHaBxPWWCg.jpg" alt="">
+                            </div>
+                            <h5 class="single-line mb-1">
+                                sdfasd
+                            </h5>
+                            <div class="two-line">
+                                asdfasd
+                            </div>
+
+                        </a>
+                    </div>
                                     <div class="col-md-4 mb-4">
                         <a class="home-news" href="http://localhost:8000/page/10">
                             <div class="image mb-2">

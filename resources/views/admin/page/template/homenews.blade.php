@@ -11,6 +11,7 @@
             border-radius: 5px;
             align-items: center;
             justify-content: center;
+            overflow: hidden;
         }
     </style>
     <div class="container">
