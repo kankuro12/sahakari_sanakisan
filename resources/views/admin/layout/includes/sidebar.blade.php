@@ -18,12 +18,12 @@
                 </a>
 
             </li>
-            <li>
+            {{-- <li>
                 <a href="{{route('admin.download.type.index')}}">
                     <i class="material-icons">download</i>
                     Downloads
                 </a>
-            </li>
+            </li> --}}
             <li>
                 <a href="{{route('admin.team.type.index')}}">
                     <i class="material-icons">people</i>
@@ -55,7 +55,7 @@
                 </ul>
             </li>
             @endforeach
-            <li >
+            {{-- <li >
                 <a href="#">
                     <i class="material-icons">event</i>
                     Events
@@ -70,7 +70,7 @@
                     </li>
 
                 </ul>
-            </li>
+            </li> --}}
             <li >
                 <a href="#">
                     <i class="material-icons">settings</i>

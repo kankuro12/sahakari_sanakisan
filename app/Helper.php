@@ -146,3 +146,10 @@ function isImageFile($fileName) {
 
     return in_array(strtolower($fileExtension), $imageExtensions);
 }
+
+function getLatestNews($id){
+    return DB::table('pages')
+    ->where('type','news')
+    ->orderBy('id','desc')
+    ->where('id','<>',$id)->take(4)->get(['id','title','image','short_desc']);
+}

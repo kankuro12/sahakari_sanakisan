@@ -26,6 +26,8 @@ class FaqController extends Controller
             $faq->a=$request->a;
             $faq->q=$request->q;
             $faq->save();
+            $this->render();
+
             return response()->json(['status'=>true]);
         }
     }
@@ -37,6 +39,7 @@ class FaqController extends Controller
             $faq->a=$request->a;
             $faq->q=$request->q;
             $faq->save();
+            $this->render();
             return response()->json(['status'=>true]);
         }
     }
@@ -44,6 +47,16 @@ class FaqController extends Controller
     public function del(Faq $faq,Request $request)
     {
         $faq->delete();
+        $this->render();
+
         return redirect()->back()->with('message','Faq Deleted Sucessfully');
+    }
+
+    public function render()
+    {
+        $faqs=Faq::all();
+
+        file_put_contents(resource_path('views/front/pages/partials/faq.blade.php'), view('admin.faq.template',compact('faqs'))->render());
+
     }
 }

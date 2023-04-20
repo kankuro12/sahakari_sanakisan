@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>{{env('APP_NAME',"")}} @yield('title')</title>
+    <title>{{ env('APP_NAME', '') }} @yield('title')</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
     @yield('meta')
@@ -23,20 +23,32 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-    <link href="{{asset('front/lib/animate/animate.min.css')}}" rel="stylesheet">
-    <link href="{{asset('front/lib/owlcarousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
+    <link href="{{ asset('front/lib/animate/animate.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('front/lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="{{asset('front/css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{ asset('front/css/bootstrap.min.css') }}" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="{{asset('front/css/style.css')}}" rel="stylesheet">
+    <link href="{{ asset('front/css/style.css') }}" rel="stylesheet">
 
     <style>
         .single-line {
-            white-space: nowrap; /* Prevents text from wrapping */
-            overflow: hidden; /* Hides any overflowing text */
-            text-overflow: ellipsis; /* Adds an ellipsis to the end of the text */
+            white-space: nowrap;
+            /* Prevents text from wrapping */
+            overflow: hidden;
+            /* Hides any overflowing text */
+            text-overflow: ellipsis;
+            /* Adds an ellipsis to the end of the text */
+        }
+
+        .two-line {
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            /* number of lines to show */
+            line-clamp: 2;
+            -webkit-box-orient: vertical;
         }
     </style>
     @yield('css')
@@ -63,7 +75,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                    &copy; <a class="border-bottom" >@ {{env('APP_NAME')}}</a>, All Right Reserved.
+                    &copy; <a class="border-bottom">@ {{ env('APP_NAME') }}</a>, All Right Reserved.
                 </div>
 
             </div>
@@ -80,14 +92,14 @@
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="{{asset('front/lib/wow/wow.min.js')}}"></script>
-    <script src="{{asset('front/lib/easing/easing.min.js')}}"></script>
-    <script src="{{asset('front/lib/waypoints/waypoints.min.js')}}"></script>
-    <script src="{{asset('front/lib/owlcarousel/owl.carousel.min.js')}}"></script>
-    <script src="{{asset('front/lib/counterup/counterup.min.js')}}"></script>
+    <script src="{{ asset('front/lib/wow/wow.min.js') }}"></script>
+    <script src="{{ asset('front/lib/easing/easing.min.js') }}"></script>
+    <script src="{{ asset('front/lib/waypoints/waypoints.min.js') }}"></script>
+    <script src="{{ asset('front/lib/owlcarousel/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('front/lib/counterup/counterup.min.js') }}"></script>
 
     <!-- Template Javascript -->
-    <script src="{{asset('front/js/main.js')}}"></script>
+    <script src="{{ asset('front/js/main.js') }}"></script>
 
     @yield('js')
 </body>

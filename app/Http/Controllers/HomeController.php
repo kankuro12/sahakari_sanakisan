@@ -47,11 +47,12 @@ class HomeController extends Controller
                 return view('front.pages.not.list', ['notices' => $pages]);
                 break;
             case 'about':
-
-
                 return view('front.pages.about.list');
                 break;
-
+            case 'news':
+                $pages = DB::table('pages')->where('type', $type)->orderBy('created_at', 'desc')->paginate(10);
+                return view('front.pages.news.list', ['news' => $pages]);
+                break;
             default:
                 # code...
                 break;
@@ -68,6 +69,10 @@ class HomeController extends Controller
                 break;
             case 'about':
                 return view('front.pages.about.single', ['about' => $page]);
+                break;
+            case 'news':
+                $uploads = DB::table('page_uploads')->where('page_id', $page->id)->get(['id', 'title', 'file']);
+                return view('front.pages.news.single', ['news' => $page, 'uploads' => $uploads]);
                 break;
             default:
                 # code...
@@ -86,5 +91,18 @@ class HomeController extends Controller
     {
         $team = DB::table('teams')->where('id', $id)->first();
         return view('front.pages.team.single', compact('team'));
+    }
+
+    public function contact()
+    {
+
+
+        return view('front.pages.contact');
+    }
+
+    public function faq()
+    {
+        return view('front.pages.faq');
+
     }
 }

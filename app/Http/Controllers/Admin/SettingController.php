@@ -225,7 +225,9 @@ class SettingController extends Controller
                 'others' => $others
             ];
             setSetting('contact', $data);
-            // dd($data
+
+            file_put_contents(resource_path('views/front/pages/partials/contact.blade.php'), view('admin.setting.template.contact')->render());
+
             return redirect()->back()->with('message', "Setting Saved Sucessfully");
         }
     }

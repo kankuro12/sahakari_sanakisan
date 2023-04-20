@@ -148,6 +148,11 @@ class PageController extends Controller
                 $abouts = DB::table('pages')->where('type', $type)->orderBy('created_at', 'desc')->paginate(10);
                 file_put_contents( resource_path('views/front/pages/partials/about.blade.php'),view('admin.page.template.about',compact('abouts','data'))->render());
 
+            case 'news':
+                $news=DB::table('pages')->where('type',$type)->orderBy('created_at','desc')->take(3)->get();
+                $count=DB::table('pages')->count();
+                file_put_contents( resource_path('views/front/pages/home/news.blade.php'),view('admin.page.template.homenews',compact('news','count'))->render());
+
             default:
                 # code...
                 break;

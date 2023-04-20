@@ -50,7 +50,7 @@ Route::get('contact', [HomeController::class, 'contact'])->name('contact');
 
 Route::get('events', [HomeController::class, 'events'])->name('events');
 Route::get('event/{id}', [HomeController::class, 'event'])->name('event');
-Route::get('faq/{faq}', [HomeController::class, 'faq'])->name('faq');
+Route::get('faq/', [HomeController::class, 'faq'])->name('faq');
 
 
 
