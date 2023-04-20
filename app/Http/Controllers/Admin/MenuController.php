@@ -15,7 +15,7 @@ class MenuController extends Controller
         $menus = DB::select("select id,name,is_header,link,sn, (select group_concat(id,'|',name,'|',link,'|',sn ) from menus where parent_id=m.id) as childs from menus m where parent_id is null");
         $pages = DB::table('pages')->select('id', 'type', 'title')->get();
         $galleries = DB::table('gallery_types')->select('id', 'name')->get();
-        $events = DB::table('events')->select('id', 'title')->latest()->get();
+        // $events = DB::table('events')->select('id', 'title')->latest()->get();
         $teams = DB::table('team_types')->select('id', 'name')->latest()->get();
         return view('admin.menu.index', compact('menus', 'pages','events','galleries','teams'));
     }

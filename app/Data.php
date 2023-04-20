@@ -51,7 +51,7 @@ class Data
         // 'fac'=>['Facility','Facilities',[],false,null,true,'Description'],
         // 'fau'=>['Faculty','Faculties',[],false,null,true,'Description'],
         'not'=>['Notice','Notices',[],true,'file|single|Downloads',false,'Content'],
-        'career'=>['Career','Careers',[],true,'file|single|Downloads',false,'Content'],
+        // 'career'=>['Career','Careers',[],true,'file|single|Downloads',false,'Content'],
         'msg'=>['Message From','Message From',[
             'msg_1'=>'Person Name|text',
             'msg_2'=>'Person Designaton|text',
