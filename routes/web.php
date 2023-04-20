@@ -42,7 +42,6 @@ Route::get('galleries', [HomeController::class, 'galleryType'])->name('gallery.t
 Route::get('gallery/{id}', [HomeController::class, 'gallery'])->name('gallery');
 
 Route::get('teams', [HomeController::class, 'teamType'])->name('team.type');
-Route::get('team/member/{id}', [HomeController::class, 'teamSingle'])->name('team.single');
 Route::get('team/{id}', [HomeController::class, 'team'])->name('team');
 
 Route::get('downloads', [HomeController::class, 'downloads'])->name('downloads');
@@ -77,6 +76,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::prefix('page')->name('page.')->group(function () {
             Route::get('@{type}', [PageController::class, 'index'])->name('index');
             Route::match(['get', 'post'], 'add/@{type}', [PageController::class, 'add'])->name('add');
+            Route::match(['get', 'post'], 'render/@{type}', [PageController::class, 'render'])->name('render');
             Route::match(['get', 'post'], 'edit/{page}', [PageController::class, 'edit'])->name('edit');
             Route::match(['get', 'post'], 'del/{page}', [PageController::class, 'del'])->name('del');
             Route::match(['get', 'post'], 'delDoc', [PageController::class, 'delDoc'])->name('delDoc');

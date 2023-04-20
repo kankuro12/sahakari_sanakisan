@@ -24,8 +24,6 @@ class HomeController extends Controller
 {
     public function index()
     {
-
-
         return view('front.pages.index');
     }
 
@@ -70,6 +68,13 @@ class HomeController extends Controller
 
     }
 
+
+    public function teamType()
+    {
+        $teamTypes=DB::table('team_types')->get();
+        $teams=DB::table('teams')->orderBy('sn','asc')->get();
+        return view('front.pages.team.type',compact('teamTypes','teams'));
+    }
 
 
 

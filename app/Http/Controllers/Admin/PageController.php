@@ -61,6 +61,7 @@ class PageController extends Controller
                     }
                 }
             }
+            $this->render($type);
 
             return redirect()->back()->with('message',"{$pageType[0]} Added Sucessfully");
         }else{
@@ -103,6 +104,8 @@ class PageController extends Controller
                     }
                 }
             }
+            $this->render($page->type);
+
             return redirect()->back()->with('message',"{$pageType[0]} Updated Sucessfully");
         }else{
         return view('admin.page.edit',compact('page','pageType'));
@@ -113,6 +116,8 @@ class PageController extends Controller
     public function del(Page $page){
 
         $pageType=Data::pageTypes[$page->type];
+        $type=$page->type;
+        $this->render($type);
         $page->delete();
         return redirect()->back()->with('message',"{$pageType[0]} Deleted Sucessfully");
 
@@ -123,8 +128,21 @@ class PageController extends Controller
         $file->delete();
     }
 
-    public function notice($type)
+    public function render($type)
     {
-        # code...
+
+
+        switch ($type) {
+            case 'not':
+
+                $notices=DB::table('pages')->where('type',$type)->orderBy('created_at','desc')->take(4)->get();
+                file_put_contents( resource_path('views/front/pages/home/notice.blade.php'),view('admin.page.template.notice',compact('notices'))->render());
+
+                break;
+
+            default:
+                # code...
+                break;
+        }
     }
 }
