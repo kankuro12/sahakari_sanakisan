@@ -34,17 +34,22 @@ class HomeController extends Controller
 
     public function serviceSingle($service)
     {
-        $services=collect(DB::select('select * from services where service_type_id = (select service_type_id from services where id=?)',[$service]));
-        $service=  $services->where('id',$service)->first();
-        return view('front.pages.service.single',compact('service','services'));
+        $services = collect(DB::select('select * from services where service_type_id = (select service_type_id from services where id=?)', [$service]));
+        $service =  $services->where('id', $service)->first();
+        return view('front.pages.service.single', compact('service', 'services'));
     }
 
     public function pageType($type)
     {
         switch ($type) {
             case 'not':
-                $pages=DB::table('pages')->where('type',$type)->orderBy('created_at','desc')->paginate(10);
-                return view('front.pages.not.list',['notices'=>$pages]);
+                $pages = DB::table('pages')->where('type', $type)->orderBy('created_at', 'desc')->paginate(10);
+                return view('front.pages.not.list', ['notices' => $pages]);
+                break;
+            case 'about':
+
+
+                return view('front.pages.about.list');
                 break;
             default:
                 # code...
@@ -54,28 +59,31 @@ class HomeController extends Controller
     public function page($id)
     {
 
-        $page=DB::table('pages')->where('id',$id)->first();
-        $uploads=DB::table('page_uploads')->where('page_id',$page->id)->get(['id','title','file']);
-        // dd($page);
+        $page = DB::table('pages')->where('id', $id)->first();
         switch ($page->type) {
             case 'not':
-                return view('front.pages.not.single',['notice'=>$page,'uploads'=>$uploads]);
+                $uploads = DB::table('page_uploads')->where('page_id', $page->id)->get(['id', 'title', 'file']);
+                return view('front.pages.not.single', ['notice' => $page, 'uploads' => $uploads]);
+                break;
+            case 'about':
+                return view('front.pages.about.single', ['about' => $page]);
                 break;
             default:
                 # code...
                 break;
         }
-
     }
 
 
     public function teamType()
     {
-        $teamTypes=DB::table('team_types')->get();
-        $teams=DB::table('teams')->orderBy('sn','asc')->get();
-        return view('front.pages.team.type',compact('teamTypes','teams'));
+
+        return view('front.pages.team.type');
     }
 
-
-
+    public function team($id)
+    {
+        $team = DB::table('teams')->where('id', $id)->first();
+        return view('front.pages.team.single', compact('team'));
+    }
 }

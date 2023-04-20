@@ -44,10 +44,7 @@
         }
     </style>
 
-    @php
-        $notices=DB::table('pages')->where('type','not')->get(['id','title','created_at']);
-        $members=DB::table('teams')->where('team_type_id',env('board',1))->get(['id','image','designation','name']);
-    @endphp
+
     <div class="container">
 
         <div class="row my-5">

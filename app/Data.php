@@ -56,7 +56,7 @@ class Data
             'msg_1'=>'Person Name|text',
             'msg_2'=>'Person Designaton|text',
             'msg_3'=>'Person contact|text',
-            'msg_5'=>'info',
+            'msg_5'=>'info|text',
             'msg_4'=>'Long Message',
         ],true,null,true,'Message'],
         // 'prog'=>['Program','Programs',[

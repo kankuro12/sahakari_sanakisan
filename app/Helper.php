@@ -100,6 +100,23 @@ function createMeta($data) {
     return $meta;
 }
 
+function createMetaTeam($data) {
+    $title = $data->name;
+    $description = $data->designation;
+    $image = asset($data->image);
+    $url = url()->current();
+    $type = 'article';
+
+    $tags = [
+        '<meta name="title" content="' . $title . '">',
+        '<meta name="description" content="' . $description . '">',
+        '<meta property="og:image" content="' . $image . '">',
+        '<meta property="og:url" content="' . $url . '">',
+        '<meta property="og:type" content="' . $type . '">'
+    ];
+
+    return implode("\n", $tags);
+}
 
 function isImageFile($fileName) {
     $imageExtensions = array(

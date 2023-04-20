@@ -84,7 +84,7 @@
                         @if ($pageType[4] != null)
                             @php
                                 $data = explode('|', $pageType[4]);
-                                
+
                             @endphp
                             <div class="card-title">
                                 <hr>
@@ -127,11 +127,12 @@
         referrerpolicy="origin"></script>
     <script src="{{ asset('admin/plugins/drophify/js/dropify.min.js') }}"></script>
     <script>
+        @include('admin.layout.includes.tinysupport')
         var state = false;
         @if ($pageType[4] != null)
-        
+
             var did=0;
-        
+
             function addDocument(params) {
             html='<div id="doc-'+did+'" class="col-md-{{ $pageType[5] ? '6' : '3' }}  mb-3"><div class="shadow p-2"><input type="hidden" name="docs[]" value="'+did+'" />'+
                     '<div><input type="file" accept="image/*,.pdf,.docx" id="doc_image_'+did+'" name="doc_image_'+did+'"required /></div>'+
@@ -149,16 +150,7 @@
         @endif
         $(function() {
             $('#photo').dropify();
-            tinymce.init({
-                selector: '.desc',
-                plugins: [
-                    '  advlist anchor autolink codesample fullscreen help image imagetools tinydrive',
-                    ' lists link media noneditable  preview',
-                    ' searchreplace table template  visualblocks wordcount '
-                ],
-                toolbar_mode: 'floating',
-              
-            });
+            @include('admin.layout.includes.tiny')
         });
     </script>
 @endsection

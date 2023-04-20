@@ -130,6 +130,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
             Route::match(['GET', 'POST'], '/homepage', [AdminSettingController::class, 'homepage'])->name('homepage');
             Route::match(['GET', 'POST'], '/contact', [AdminSettingController::class, 'contact'])->name('contact');
             Route::match(['GET', 'POST'], '/meta', [AdminSettingController::class, 'meta'])->name('meta');
+            Route::match(['GET', 'POST'], '/about', [AdminSettingController::class, 'about'])->name('about');
 
             Route::prefix('slider')->name('slider.')->group(function () {
                 Route::get('', [SliderController::class, 'index'])->name('index');

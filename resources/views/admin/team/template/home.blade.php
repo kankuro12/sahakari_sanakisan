@@ -5,14 +5,14 @@
 
             @foreach ($mainTeams as $team)
 
-            <div class="col-md-6 mb-3">
+            <div class="col-md-6 px-1 mb-3">
                 <div class="card">
                     <img src="{{asset($team->image)}}"
                         alt="" class="w-100">
                     <div class="p-2">
-                        <b>
+                        <b class="single-line d-block">
                             {{$team->name}}
-                        </b> <br>
+                        </b>
                         {{$team->designation}}
                     </div>
                 </div>

@@ -31,6 +31,14 @@
 
     <!-- Template Stylesheet -->
     <link href="{{asset('front/css/style.css')}}" rel="stylesheet">
+
+    <style>
+        .single-line {
+            white-space: nowrap; /* Prevents text from wrapping */
+            overflow: hidden; /* Hides any overflowing text */
+            text-overflow: ellipsis; /* Adds an ellipsis to the end of the text */
+        }
+    </style>
     @yield('css')
 
 </head>

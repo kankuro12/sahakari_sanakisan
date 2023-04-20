@@ -229,4 +229,16 @@ class SettingController extends Controller
             return redirect()->back()->with('message', "Setting Saved Sucessfully");
         }
     }
+
+    public function about(Request $request)
+    {
+        if($request->getMethod()=="POST"){
+            setSetting('main_msg',$request->main_msg);
+            return redirect()->back();
+        }else{
+            $datas=DB::table('pages')->where('type','msg')->get(['id','title']);
+            $mainMsg=getSetting('main_msg');
+            return view('admin.setting.about',compact('mainMsg','datas'));
+        }
+    }
 }

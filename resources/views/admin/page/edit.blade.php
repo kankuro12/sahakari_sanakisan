@@ -87,7 +87,7 @@
                         @if ($pageType[4] != null)
                             @php
                                 $data = explode('|', $pageType[4]);
-                                
+
                             @endphp
                             <div class="card-title">
                                 <hr>
@@ -103,7 +103,7 @@
                             </div>
                             <div class="col-md-12">
                                 <div class="row" id="documents">
-                                    @foreach ($page->files as $file)    
+                                    @foreach ($page->files as $file)
                                         <div class="col-md-6" id="file-{{$file->id}}">
                                             <div class="shadow p-2">
                                                 <input type="file" disabled class="photo" data-default-file="{{asset($file->file)}}">
@@ -146,9 +146,9 @@
     <script>
         var state = false;
         @if ($pageType[4] != null)
-        
+
             var did=0;
-        
+
             function addDocument(params) {
             html='<div id="doc-'+did+'" class="col-md-{{ $pageType[5] ? '6' : '3' }}  mb-3"><div class="shadow p-2"><input type="hidden" name="docs[]" value="'+did+'" />'+
                     '<div><input type="file" accept="image/*,.pdf,.docx" id="doc_image_'+did+'" name="doc_image_'+did+'"required /></div>'+
@@ -164,19 +164,13 @@
             $('#doc-'+id).remove();
             }
         @endif
+
+        @include('admin.layout.includes.tinysupport')
+
         $(function() {
             $('#photo').dropify();
             $('.photo').dropify();
-            tinymce.init({
-                selector: '.desc',
-                plugins: [
-                    '  advlist anchor autolink codesample fullscreen help image imagetools tinydrive',
-                    ' lists link media noneditable  preview',
-                    ' searchreplace table template  visualblocks wordcount '
-                ],
-                toolbar_mode: 'floating',
-              
-            });
+            @include('admin.layout.includes.tiny')
         });
 
         function delFile(id) {
