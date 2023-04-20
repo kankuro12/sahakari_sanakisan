@@ -234,6 +234,13 @@ class SettingController extends Controller
     {
         if($request->getMethod()=="POST"){
             setSetting('main_msg',$request->main_msg);
+            $mainMsg = getSetting('main_msg') ?? -1;
+
+                $data = DB::table('pages')->where('id', $mainMsg)->first();
+                $data->desc = json_decode($data->desc);
+                // dd($data);
+                $abouts = DB::table('pages')->where('type', 'about')->orderBy('created_at', 'desc')->paginate(10);
+                file_put_contents( resource_path('views/front/pages/partials/about.blade.php'),view('admin.page.template.about',compact('abouts','data'))->render());
             return redirect()->back();
         }else{
             $datas=DB::table('pages')->where('type','msg')->get(['id','title']);

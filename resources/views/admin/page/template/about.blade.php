@@ -1,5 +1,4 @@
-@if ($data!=null)
-
+@if ($data != null)
     <div class="row pb-5">
         <div class="col-md-3">
             <div class="about-image mb-3">
@@ -40,25 +39,25 @@
     </div>
 @endif
 
-<h1 class="{{$data!=null?"mt-5 mb-5":""}} text-center text-md-start">
+<h1 class="{{ $data != null ? 'mt-5 mb-5' : '' }} text-center text-md-start">
     Know More About Us
 </h1>
 <div class="row">
     @foreach ($abouts as $about)
-    <div class="col-md-4 mb-4">
-        <a href="{{route('page',['id'=>$about->id])}}">
+        <div class="col-md-4 mb-4">
+            <a href="{{ route('page', ['id' => $about->id]) }}">
 
-            <div class="shadow mb-2">
-                <div class="about-image single-about ">
-                    <img src="{{ asset($about->image) }}" alt="" class="h-100">
+                <div class="shadow mb-2">
+                    <div class="about-image single-about ">
+                        <img src="{{ asset($about->image) }}" alt="" class="h-100">
+                    </div>
                 </div>
-            </div>
-            <div class="p-2">
-                <h5>
-                    {{ $about->title }}
-                </h5>
-            </div>
-        </a>
-    </div>
+                <div class="p-2">
+                    <h5>
+                        {{ $about->title }}
+                    </h5>
+                </div>
+            </a>
+        </div>
     @endforeach
 </div>

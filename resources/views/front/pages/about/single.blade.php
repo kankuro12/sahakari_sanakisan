@@ -1,13 +1,13 @@
 @extends('front.pages.app')
 @section('b-items')
     <li class="breadcrumb-item " aria-current="page">
-        <a href="{{route('page.type',['type'=>'about'])}}">
+        <a href="{{ route('page.type', ['type' => 'about']) }}">
             About Us
         </a>
 
     </li>
     <li class="breadcrumb-item active" aria-current="page">
-        {{$about->title}}
+        {{ $about->title }}
     </li>
 @endsection
 @section('meta')
@@ -21,17 +21,17 @@
         }
 
 
-        .about-holder{
+        .about-holder {
             display: block;
-            color:black;
+            color: black;
         }
     </style>
 @endsection
 @section('title')
-    - About Us - {{$about->title}}
+    - About Us - {{ $about->title }}
 @endsection
 @section('b-title')
-    About Us - {{$about->title}}
+    About Us - {{ $about->title }}
 @endsection
 @section('pagecontent')
     <div class="container">
@@ -59,9 +59,8 @@
 
             </div>
         </div>
+    </div>
+    @endsection
 
-
-@endsection
-
-@section('pagejs')
-@endsection
+    @section('pagejs')
+    @endsection
