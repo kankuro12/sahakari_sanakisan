@@ -30,3 +30,7 @@ resources/views/front/pages/partials/about.blade.php
 resources/views/front/pages/partials/team.blade.php
 resources/views/front/pages/partials/faq.blade.php
 resources/views/front/pages/partials/contact.blade.php
+resources/views/front/layout/menu.blade.php
+resources/views/front/includes/footeraddr.blade.php
+resources/views/front/includes/footermap.blade.php
+resources/views/front/layout/menu.blade.php

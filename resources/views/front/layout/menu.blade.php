@@ -26,7 +26,7 @@
 
                                                             <a href="http://localhost:8000" class="nav-item nav-link">Home</a>
                                                                             <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">one</a>
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">oneasdf</a>
                         <div class="dropdown-menu border-light m-0">
                                                             <a href="/SADFASDFS" class="dropdown-item">test</a>
                                                     </div>
