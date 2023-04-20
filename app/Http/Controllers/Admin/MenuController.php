@@ -17,7 +17,7 @@ class MenuController extends Controller
         $galleries = DB::table('gallery_types')->select('id', 'name')->get();
         // $events = DB::table('events')->select('id', 'title')->latest()->get();
         $teams = DB::table('team_types')->select('id', 'name')->latest()->get();
-        return view('admin.menu.index', compact('menus', 'pages','events','galleries','teams'));
+        return view('admin.menu.index', compact('menus', 'pages','galleries','teams'));
     }
 
     public function del(Request $request)

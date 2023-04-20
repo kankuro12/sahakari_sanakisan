@@ -24,7 +24,8 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
 
-                                                        <div class="nav-item dropdown">
+                                                            <a href="http://localhost:8000" class="nav-item nav-link">Home</a>
+                                                                            <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">one</a>
                         <div class="dropdown-menu border-light m-0">
                                                             <a href="/SADFASDFS" class="dropdown-item">test</a>

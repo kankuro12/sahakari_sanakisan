@@ -115,11 +115,9 @@
 @section('script')
     <script>
         const url = "{{ route('page', ['id' => 'xxx_id']) }}";
-        const eventurl = "{{ route('event', ['id' => 'xxx_id']) }}";
         const galleryurl = "{{ route('gallery', ['id' => 'xxx_id']) }}";
         const teamurl = "{{ route('team', ['id' => 'xxx_id']) }}";
         const pages = {!! json_encode($pages) !!};
-        const events = {!! json_encode($events) !!};
         const galleries = {!! json_encode($galleries) !!};
         const teams = {!! json_encode($teams) !!};
         const menus = {!! json_encode($menus) !!};
@@ -130,11 +128,11 @@
                 ["{{ route('page.type', ['type' => $key]) }}","{{ $pageType[1] }}"],
             @endforeach
             ['{{ route('home') }}', "Home"],
-            ['{{ route('events') }}', "Events"],
             ['{{ route('gallery.type') }}', "Galleries"],
             ['{{ route('downloads') }}', "Downloads"],
             ['{{ route('team.type') }}', "Teams"],
             ['{{ route('contact') }}', "Contact"],
+            ['{{ route('faq') }}', "FAQ"],
         ]
         $(function() {
             let arr = [];
