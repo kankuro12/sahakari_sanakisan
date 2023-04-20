@@ -33,8 +33,8 @@ class SettingController extends Controller
 
             ],
             [
-               [ "footersocial","views/front/includes/footersocial.blade.php"],
-               [ "headersocial","views/front/includes/headersocial.blade.php"],
+                ["footersocial", "views/front/includes/footersocial.blade.php"],
+                ["headersocial", "views/front/includes/headersocial.blade.php"],
             ]
         ],
         'copy' => [
@@ -43,42 +43,42 @@ class SettingController extends Controller
 
 
             ]
-            ],
-        'homeabout'=>[
+        ],
+        'homeabout' => [
             "About Us",
             [
-                ['img',0],
-                ['title',1],
-                ['desc',2],
-                ['story',2],
-                ['mission',2],
-                ['vision',2],
+                ['img', 0],
+                ['title', 1],
+                ['desc', 2],
+                ['story', 2],
+                ['mission', 2],
+                ['vision', 2],
             ],
             "views/front/pages/home/about.blade.php"
 
         ],
-        'homefacts'=>[
+        'homefacts' => [
             "Home Facts",
             [
-                ['icon1',1],['num1',1],['title1',1],
-                ['icon2',1],['num2',1],['title2',1],
-                ['icon3',1],['num3',1],['title3',1],
-                ['icon4',1],['num4',1],['title4',1],
+                ['icon1', 1], ['num1', 1], ['title1', 1],
+                ['icon2', 1], ['num2', 1], ['title2', 1],
+                ['icon3', 1], ['num3', 1], ['title3', 1],
+                ['icon4', 1], ['num4', 1], ['title4', 1],
 
             ],
             "views/front/pages/home/facts.blade.php"
 
         ],
-        'homefeature'=>[
+        'homefeature' => [
             "Home Feature",
             [
-                ['subtitle',1],
-                ['title',1],
-                ['desc',2],
-                ['url',1],
-                ['title1',1],['desc1',2],['url1',1],
-                ['title2',1],['desc2',2],['url2',1],
-                ['title3',1],['desc3',2],['url3',1],
+                ['subtitle', 1],
+                ['title', 1],
+                ['desc', 2],
+                ['url', 1],
+                ['title1', 1], ['desc1', 2], ['url1', 1],
+                ['title2', 1], ['desc2', 2], ['url2', 1],
+                ['title3', 1], ['desc3', 2], ['url3', 1],
 
             ],
             "views/front/pages/home/features.blade.php"
@@ -96,24 +96,22 @@ class SettingController extends Controller
             foreach ($data[1] as $key => $attr) {
                 $k = $type . '_' . $attr[0];
                 try {
-                    if(($attr[1] == 0)) {
+                    if (($attr[1] == 0)) {
                         $s = setSetting($k, $request->file($k)->store('uploads/settings'), true);
-                    }else{
+                    } else {
                         $s = setSetting($k, $request->input($k), true);
-
                     }
                     $curdata[$attr[0]] = $s->value;
                 } catch (\Throwable $th) {
-                    $curdata[$attr[0]] = getSetting($k,true);
+                    $curdata[$attr[0]] = getSetting($k, true);
                 }
             }
             if (isset($data[2])) {
-                if(is_array($data[2])){
+                if (is_array($data[2])) {
                     foreach ($data[2] as $key => $pathData) {
-                            file_put_contents(resource_path($pathData[1]), view('admin.setting.template.' . $pathData[0], compact('curdata'))->render());
-
+                        file_put_contents(resource_path($pathData[1]), view('admin.setting.template.' . $pathData[0], compact('curdata'))->render());
                     }
-                }else{
+                } else {
 
                     file_put_contents(resource_path($data[2]), view('admin.setting.template.' . $type, compact('curdata'))->render());
                 }
@@ -126,26 +124,27 @@ class SettingController extends Controller
         }
     }
 
-    public function meta(Request $request){
+    public function meta(Request $request)
+    {
         if ($request->getMethod() == "GET") {
             $data = getSetting('meta') ?? ((object)([
-                'desc'=>'',
-                'image'=>'',
-                'keyword'=>'',
+                'desc' => '',
+                'image' => '',
+                'keyword' => '',
             ]));
             // dd($data);
 
             return view('admin.setting.meta', compact('data'));
         } else {
             $olddata = getSetting('meta') ?? ((object)([
-                'desc'=>'',
-                'image'=>'',
-                'keyword'=>'',
+                'desc' => '',
+                'image' => '',
+                'keyword' => '',
             ]));
             $data = [
-                'desc'=>$request->desc,
-                'keyword'=>$request->keyword,
-                'image'=>$request->hasFile('image')?$request->image->store('uploads/settings'):$olddata->image
+                'desc' => $request->desc,
+                'keyword' => $request->keyword,
+                'image' => $request->hasFile('image') ? $request->image->store('uploads/settings') : $olddata->image
             ];
             setSetting('meta', $data);
             file_put_contents(resource_path('views/front/includes/meta.blade.php'), view('admin.setting.template.meta')->render());
@@ -209,24 +208,26 @@ class SettingController extends Controller
             $others = [];
             if ($request->filled('others')) {
                 foreach ($request->others as $key => $other) {
-                    array_push($others,[
-                        'name'=>$request->input('name_'.$other)??'',
-                        'phone'=>$request->input('phone_'.$other)??'',
-                        'designation'=>$request->input('designation_'.$other)??'',
-                        'email'=>$request->input('email_'.$other)??'',
+                    array_push($others, [
+                        'name' => $request->input('name_' . $other) ?? '',
+                        'phone' => $request->input('phone_' . $other) ?? '',
+                        'designation' => $request->input('designation_' . $other) ?? '',
+                        'email' => $request->input('email_' . $other) ?? '',
                     ]);
                 }
             }
             $data = [
-                'map' => $request->map??'',
-                'email' => $request->email??'',
-                'phone' => $request->phone??'',
-                'addr' => $request->addr??'',
+                'map' => $request->map ?? '',
+                'email' => $request->email ?? '',
+                'phone' => $request->phone ?? '',
+                'addr' => $request->addr ?? '',
                 'others' => $others
             ];
             setSetting('contact', $data);
 
             file_put_contents(resource_path('views/front/pages/partials/contact.blade.php'), view('admin.setting.template.contact')->render());
+            file_put_contents(resource_path('views/front/includes/footeraddr.blade.php'), view('admin.setting.template.contactfooter')->render());
+            file_put_contents(resource_path('views/front/includes/footermap.blade.php'), view('admin.setting.template.contactmapfooter')->render());
 
             return redirect()->back()->with('message', "Setting Saved Sucessfully");
         }
@@ -234,20 +235,20 @@ class SettingController extends Controller
 
     public function about(Request $request)
     {
-        if($request->getMethod()=="POST"){
-            setSetting('main_msg',$request->main_msg);
+        if ($request->getMethod() == "POST") {
+            setSetting('main_msg', $request->main_msg);
             $mainMsg = getSetting('main_msg') ?? -1;
 
-                $data = DB::table('pages')->where('id', $mainMsg)->first();
-                $data->desc = json_decode($data->desc);
-                // dd($data);
-                $abouts = DB::table('pages')->where('type', 'about')->orderBy('created_at', 'desc')->paginate(10);
-                file_put_contents( resource_path('views/front/pages/partials/about.blade.php'),view('admin.page.template.about',compact('abouts','data'))->render());
+            $data = DB::table('pages')->where('id', $mainMsg)->first();
+            $data->desc = json_decode($data->desc);
+            // dd($data);
+            $abouts = DB::table('pages')->where('type', 'about')->orderBy('created_at', 'desc')->paginate(10);
+            file_put_contents(resource_path('views/front/pages/partials/about.blade.php'), view('admin.page.template.about', compact('abouts', 'data'))->render());
             return redirect()->back();
-        }else{
-            $datas=DB::table('pages')->where('type','msg')->get(['id','title']);
-            $mainMsg=getSetting('main_msg');
-            return view('admin.setting.about',compact('mainMsg','datas'));
+        } else {
+            $datas = DB::table('pages')->where('type', 'msg')->get(['id', 'title']);
+            $mainMsg = getSetting('main_msg');
+            return view('admin.setting.about', compact('mainMsg', 'datas'));
         }
     }
 }

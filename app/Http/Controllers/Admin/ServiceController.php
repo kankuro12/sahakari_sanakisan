@@ -124,6 +124,7 @@ class ServiceController extends Controller
         $services=DB::table('services')->get();
         file_put_contents( resource_path('views/front/pages/home/service.blade.php'),view('admin.service.template',compact('serviceTypes','services'))->render());
         file_put_contents( resource_path('views/front/pages/partials/service.blade.php'),view('admin.service.pagetemplate',compact('serviceTypes','services'))->render());
+        file_put_contents( resource_path('views/front/includes/footerser.blade.php'),view('admin.service.templatefooter',compact('serviceTypes','services'))->render());
 
     }
 }
