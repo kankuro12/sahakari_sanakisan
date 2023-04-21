@@ -105,4 +105,21 @@ class HomeController extends Controller
         return view('front.pages.faq');
 
     }
+
+    public function galleryType()
+    {
+        $galleries=DB::table('gallery_types')->get();
+        return view('front.pages.gallery.list',compact('galleries'));
+
+    }
+
+    public function gallery($id)
+    {
+        $type=DB::table('gallery_types')->where('id',$id)->first();
+        $images=DB::table('galleries')->where('gallery_type_id',$id)->get();
+        return view('front.pages.gallery.single',compact('images','type'));
+
+    }
+
+
 }
