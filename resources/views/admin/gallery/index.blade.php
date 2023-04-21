@@ -101,12 +101,12 @@
 
     <div class="bg-white shadow mt-3">
         <div class="card-body">
-            <div id="images">
+            <div id="images" class="row">
                 {{-- @php
                     dd($type->images);
                 @endphp --}}
                 @foreach ($type->images as $image)
-                <div class="col-md-3 p-0">
+                <div class="col-md-3 p-0" id="img-{{$image->id}}">
                     <div id="image-{{$image->id}}"class="single-image">
                         <img  data-src="{{asset($image->file)}}"  src="{{asset($image->thumb??$image->file)}}" class="w-100" alt="">
                         <button onclick="del({{$image->id}})">X</button>
@@ -120,15 +120,15 @@
         <div class="modal-dialog  modal-dialog-centered ">
             <div class="modal-content p-5">
                 <div id="modal-image-holder">
-                   
+
                     <img src="/front/basicimage.jpg" class="w-100" alt="">
-                    
+
                 </div>
             </div>
         </div>
     </div>
-    
-  
+
+
 @endsection
 @section('script')
     <script>
@@ -138,7 +138,7 @@
         //     var f=new formdata();
         //     $('.single-upload>img').each(function (index, element) {
         //         f.append('data[]',)
-                
+
         //     });
         // }
         function remove(sn) {
@@ -180,17 +180,17 @@
                     const blob = blobs[key];
                     f.append('images[]',blob);
                     console.log(blob);
-                    
+
                 }
             }
-            
-          
+
+
             axios.post('{{route('admin.setting.gallery.add')}}',f)
             .then((res)=>{
                 console.log(res.data);
                 html='';
                 res.data.forEach(img => {
-                    html+='<div class="col-md-3 p-0">'+
+                    html+='<div class="col-md-3 p-0" id="img-'+img.id+'">'+
                     '<div data-src="/'+img.image+'" id="image-'+img.id+'" class="single-image">'+
                         '<img src="/'+img.thumb+'" class="w-100" alt="">'+
                         '<button onclick="del('+img.id+')">X</button>'+
@@ -205,41 +205,15 @@
                 console.log(err);
             });
         }
+
+        function del(id) {
+            axios.post("{{route('admin.setting.gallery.del')}}",{id})
+            .then((res)=>{
+                $('#img-'+id).remove();
+            })
+        }
+
+
     </script>
-    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
-    <script src="{{ asset('front/js/lazy.js') }}"></script>
-    <script>
-        var index=0;
-        $(document).ready(function() {
-            // lazy.init('#images .single-image>img');
-            $('#images').masonry({
-                itemSelector: '.col-md-3',
-            });
-            $('#images .single-image>img').click(function(e) {
-                e.preventDefault();
-                let src = this.dataset.src;
-                $('#modal-image-holder>img').attr('src',src);
-                $('#staticBackdrop').modal('show');
-            });
-    
-            // $('#modal-image-holder>.next').click(function(e) {
-            //     e.preventDefault();
-            //     index += 1;
-            //     if (index >= galleryelem.length) {
-            //         index = 0;
-            //     }
-            //     $('#modal-image-holder>img').attr('src', galleryelem[index].src);
-    
-            // });
-            // $('#modal-image-holder>.prev').click(function(e) {
-            //     e.preventDefault();
-            //     index -= 1;
-            //     if (index < 0) {
-            //         index = galleryelem.length - 1;
-            //     }
-            //     $('#modal-image-holder>img').attr('src', galleryelem[index].src);
-    
-            // });
-        });
-    </script>
+
 @endsection

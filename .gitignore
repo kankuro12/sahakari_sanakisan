@@ -34,3 +34,4 @@ resources/views/front/layout/menu.blade.php
 resources/views/front/includes/footeraddr.blade.php
 resources/views/front/includes/footermap.blade.php
 resources/views/front/layout/menu.blade.php
+resources/views/front/pages/partials/galleries.blade.php

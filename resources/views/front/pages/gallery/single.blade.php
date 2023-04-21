@@ -24,6 +24,9 @@
             overflow: hidden;
             position: relative;
             height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .singlegallery .overlay {
@@ -57,8 +60,8 @@
     <div class="container">
         <div class="row">
             @foreach ($images as $image)
-                <div class="col-md-3">
-                    <a class="singlegallery" href="{{ asset($image->file) }}" data-fancybox="gallery" data-caption="Caption #1">
+                <div class="col-md-3 mb-3">
+                    <a class="singlegallery" href="{{ asset($image->file) }}" data-fancybox="gallery">
                         <img src="{{ asset($image->thumb) }}" />
                     </a>
                 </div>

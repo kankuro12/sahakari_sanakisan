@@ -108,8 +108,7 @@ class HomeController extends Controller
 
     public function galleryType()
     {
-        $galleries=DB::table('gallery_types')->get();
-        return view('front.pages.gallery.list',compact('galleries'));
+        return view('front.pages.gallery.list');
 
     }
 

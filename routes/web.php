@@ -157,7 +157,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
                 Route::get('manage/{type}', [GalleryController::class, 'index'])->name('index');
                 Route::match(['get', 'post'], 'add', [GalleryController::class, 'add'])->name('add');
                 Route::match(['get', 'post'], 'edit/{gallery}', [GalleryController::class, 'edit'])->name('edit');
-                Route::match(['get', 'post'], 'del/{gallery}', [GalleryController::class, 'del'])->name('del');
+                Route::match(['get', 'post'], 'del', [GalleryController::class, 'del'])->name('del');
             });
 
 

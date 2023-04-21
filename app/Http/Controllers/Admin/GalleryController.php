@@ -7,6 +7,7 @@ use App\Models\Gallery;
 use App\Models\GalleryType;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Intervention\Image\Facades\Image;
 class GalleryController extends Controller
@@ -23,6 +24,8 @@ class GalleryController extends Controller
         $type->name=$request->name;
         $type->icon=$request->icon->store('uploads/gallery/'.Carbon::now()->format('Y/m/d'));
         $type->save();
+        $this->render();
+
         return redirect()->back()->with('message','Gallery Added Sucessfully');
     }
     public function editType(Request $request,GalleryType $type){
@@ -31,12 +34,14 @@ class GalleryController extends Controller
             $type->icon=$request->icon->store('uploads/gallery/'.Carbon::now()->format('Y/m/d'));
         }
         $type->save();
+        $this->render();
+
         return redirect()->back()->with('message','Gallery Updated Sucessfully');
     }
 
     public function delType(Request $request,GalleryType $type){
         $type->delete();
-       
+        $this->render();
         return redirect()->back()->with('message','Gallery Deleted Sucessfully');
     }
 
@@ -72,12 +77,24 @@ class GalleryController extends Controller
                     $gallery->thumb=$name;
                     $gallery->save();
                 } catch (\Throwable $th) {
-                    
+
                 }
                 array_push($data,$gallery);
             }
         }
         return response()->json($data);
+    }
+
+    public function del(Request $request)
+    {
+        Gallery::where('id',$request->id)->delete();
+    }
+
+    public function render()
+    {
+        $galleries=DB::table('gallery_types')->get();
+        file_put_contents(resource_path('views/front/pages/partials/galleries.blade.php'), view('admin.gallery.template', compact('galleries'))->render());
+
     }
 
 

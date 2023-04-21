@@ -48,18 +48,6 @@
 @endsection
 @section('pagecontent')
     <div class="container">
-        <div class="row">
-            @foreach ($galleries as $gallery)
-                <a class="col-md-3 col-6 " href="{{route('gallery',['id'=>$gallery->id])}}">
-                    <div class="singlegallery">
-
-                        <img class="w-100" src="{{asset($gallery->icon)}}" alt="">
-                        <div class="overlay">
-                            asdf
-                        </div>
-                    </div>
-                </a>
-            @endforeach
-        </div>
+        @includeIf('front.pages.partials.galleries')
     </div>
 @endsection
