@@ -1,20 +1,17 @@
-<div class="owl-carousel owl-theme owl-home">
-    @foreach ($sliders as $slider)   
-    @if ($slider->title=='' && $slider->subtitle=='')
-        <div class="item">
-            <img class="w-100 d-block d-md-none" src="{{asset($slider->mobile_image)}}">
-            <img class="w-100 d-none d-md-block" src="{{asset($slider->image)}}">
-        </div>
-    @else
+@if ($popups->count() > 0)
+    @foreach ($popups as $popup)
+        <div class="modal fade modals" id="pop-{{$popup->id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-body" style="position: relative">
+                        <button type="button" style="position: absolute;top:10px; right: 10px;" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <img  class="d-none d-md-block w-100" src="{{asset($popup->image)}}"/>
+                        <img  class="d-block d-md-none w-100" src="{{asset($popup->mobile_image)}}"/>
+                    </div>
 
-        <div class="item" style="--image:url('{{asset($slider->image)}}');--mobile-image:url('{{asset($slider->mobile_image)}}');" id="slider-{{$slider->id}}">
-            <div class="inner">
-                <h5>{{$slider->title}}</h5>
-                <h6>{{$slider->subtitle}}</h6>
-                <a style="color: {{$slider->fg}};background:{{$slider->bg}}" href="{{$slider->link}}">{{$slider->link_title}}</a>
+                </div>
             </div>
         </div>
-    @endif 
     @endforeach
-
-</div>
+@endif

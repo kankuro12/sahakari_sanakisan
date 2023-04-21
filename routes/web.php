@@ -141,6 +141,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
             Route::prefix('popup')->name('popup.')->group(function () {
                 Route::get('', [PopupController::class, 'index'])->name('index');
                 Route::match(['get', 'post'], 'add', [PopupController::class, 'add'])->name('add');
+                Route::match(['get', 'post'], 'render', [PopupController::class, 'render'])->name('render');
                 Route::match(['get', 'post'], 'edit/{popup}', [PopupController::class, 'edit'])->name('edit');
                 Route::match(['get', 'post'], 'del/{popup}', [PopupController::class, 'del'])->name('del');
                 Route::match(['get', 'post'], 'status/{popup}/{status}', [PopupController::class, 'status'])->name('status');

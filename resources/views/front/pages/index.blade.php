@@ -1,5 +1,6 @@
 @extends('front.layout.app')
 @section('meta')
+    @includeIf('admin.includes.meta')
 @endsection
 @section('content')
     @includeIf('front.pages.home.slider')
@@ -63,4 +64,23 @@
     @includeIf('front.pages.home.facts')
     @includeIf('front.pages.home.features')
     @includeIf('front.pages.home.news')
+    @includeIf('front.includes.popups')
+
+
+
+
+
+@endsection
+@section('js')
+    <script>
+        $(document).ready(function() {
+            $('.modals').each(function(index, element) {
+                // element == this
+                const myModal = new bootstrap.Modal(element, {})
+                myModal.show()
+
+            });
+
+        });
+    </script>
 @endsection
