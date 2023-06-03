@@ -8,6 +8,9 @@
                     {{$gallery->name}}
                 </div>
             </div>
+            <h5>
+                <p class="mt-2 mb-0">{{$gallery->name}}</p>
+            </h5>
         </a>
     @endforeach
 </div>

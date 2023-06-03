@@ -31,6 +31,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[HomeController::class,'index'])->name('home');
 
 //services
+Route::redirect('services', 'service-type', 301);
 Route::get('service-type',[HomeController::class,'serviceTypes'])->name('service.types');
 Route::get('service-single/{service}',[HomeController::class,'serviceSingle'])->name('service.single');
 
