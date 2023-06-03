@@ -9,7 +9,7 @@
     @yield('meta')
 
     <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+    @includeIf('front.includes.icon')
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
