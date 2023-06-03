@@ -57,7 +57,7 @@
                                 </div>
                             </div>
                         </div>
-                        <hr>
+                        {{-- <hr>
                         <div class="">
                             <h4>Title</h4>
                             {{ $slider->title }}
@@ -80,12 +80,12 @@
                                     <span>{{ $slider->link }}</span>
                                 </div>
                                 <div class="col-md-5">
-                                    <strong>Preview : </strong> 
+                                    <strong>Preview : </strong>
                                     <a href="{{$slider->link}}" class="btn-preview">{{$slider->link_title}}</a>
                                 </div>
                             </div>
                         </div>
-                        <hr>
+                        <hr> --}}
                         <div class="py-2">
                             <a href="{{route('admin.setting.slider.edit',['slider'=>$slider->id])}}" class="btn btn-success">Edit</a>
                             <a href="{{route('admin.setting.slider.del',['slider'=>$slider->id])}}" class="btn btn-danger">Delete</a>

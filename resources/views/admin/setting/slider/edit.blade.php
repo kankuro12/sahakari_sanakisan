@@ -48,26 +48,26 @@
                     </div>
                     <div class="col-md-3">
                         <label for="mobile_image">Mobile Image</label>
-                        <input type="file" name="mobile_image" id="mobile_image" class="form-control photo"  data-default-file="{{asset($slider->image)}}">
+                        <input type="file" name="mobile_image" id="mobile_image" class="form-control photo"  data-default-file="{{asset($slider->mobile_image)}}">
                     </div>
-                    <div class="col-md-12">
+                    {{-- <div class="col-md-12">
                         <label for="title">Title</label>
                         <input type="text" name="title" id="title" class="form-control " required value="{{$slider->title}}">
                     </div>
                     <div class="col-md-12">
                         <label for="subtitle">Subtitle</label>
                         <input type="text" name="subtitle" id="subtitle" class="form-control " required value="{{$slider->subtitle}}">
-                    </div>
+                    </div> --}}
 
                 </div>
-                <h5 class="p-3 shadow mt-3">
+                {{-- <h5 class="p-3 shadow mt-3">
                     Current Link : {{$slider->link}}  <br> Link Text : {{$slider->link_title}}
                 </h5>
                 <div class="py-2">
                     <input type="checkbox" value="1" name="change_link"  id="change-link" onchange="$('#btn-setting').css('display',this.checked?'block':'none');"> <label for="change-link">Change Link</label>
-                </div>
+                </div> --}}
 
-                <div class="shadow mt-3" id="btn-setting" style="display: none">
+                {{-- <div class="shadow mt-3" id="btn-setting" style="display: none">
                     <h5 class="p-3">Button Setting</h5>
                     <hr class="m-0">
                         <div class="p-3">
@@ -122,7 +122,7 @@
                                 </div>
                             </div>
                         </div>
-                </div>
+                </div> --}}
                 <div class="py-2">
                     <button class="btn btn-primary">
                         Update Slider
@@ -148,7 +148,7 @@
         $(function() {
             $('.photo').dropify();
             typeChanged($('#type')[0]);
-            $('#type').change(function (e) { 
+            $('#type').change(function (e) {
                 e.preventDefault();
                 typeChanged(this);
             });
@@ -161,7 +161,7 @@
             $('#extra-links').removeAttr('required');
             // e.preventDefault();
             switch ($(ele).val()) {
-               
+
                 case "2":
                     $('#links').attr('required', 'required');
                     $('#link-wrapper').removeClass('d-none');

@@ -22,8 +22,8 @@ class SliderController extends Controller
             $slider->title=$request->title??'';
             $slider->subtitle=$request->subtitle??'';
             $slider->link_title=$request->link_title??'';
-            $slider->fg=$request->fg;
-            $slider->bg=$request->bg;
+            $slider->fg=$request->fg??"";
+            $slider->bg=$request->bg??"";
             $slider->image=$request->image->store('uploads/sliders');
             if($request->hasFile('mobile_image')){
                 $slider->mobile_image=$request->mobile_image->store('uploads/sliders');
@@ -34,10 +34,10 @@ class SliderController extends Controller
             }
             switch ($request->type) {
                 case 3:
-                    $slider->link = $request->extra_links;
+                    $slider->link = $request->extra_links??"";
                     break;
                 default:
-                    $slider->link = $request->links;
+                    $slider->link = $request->links??"";
                     break;
             }
             $slider->save();
@@ -62,15 +62,15 @@ class SliderController extends Controller
     public function edit(Request $request,Slider $slider)
     {
         if($request->getMethod()=="POST"){
-            $slider->title=$request->title;
-            $slider->subtitle=$request->subtitle;
+            $slider->title=$request->title??"";
+            $slider->subtitle=$request->subtitle??"";
             if($request->hasFile('mobile_image')){
                 $slider->mobile_image=$request->mobile_image->store('uploads/sliders');
-                
+
             }
             if($request->hasFile('image')){
                 $slider->image=$request->image->store('uploads/sliders');
-                
+
             }
             if($request->has('change_link')){
 

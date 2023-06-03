@@ -48,17 +48,17 @@
                         <label for="mobile_image">Mobile Image</label>
                         <input type="file" name="mobile_image" id="mobile_image" class="form-control photo">
                     </div>
-                    <div class="col-md-12">
+                    {{-- <div class="col-md-12">
                         <label for="title">Title</label>
                         <input type="text" name="title" id="title" class="form-control " >
                     </div>
                     <div class="col-md-12">
                         <label for="subtitle">Subtitle</label>
                         <input type="text" name="subtitle" id="subtitle" class="form-control " >
-                    </div>
+                    </div> --}}
 
                 </div>
-                <div class="shadow mt-3">
+                {{-- <div class="shadow mt-3">
                     <h5 class="p-3">Button Setting</h5>
                     <hr class="m-0">
                         <div class="p-3">
@@ -113,7 +113,7 @@
                                 </div>
                             </div>
                         </div>
-                </div>
+                </div> --}}
                 <div class="py-2">
                     <button class="btn btn-primary">
                         Add Slider

@@ -8,7 +8,7 @@
                 <div class="carousel-item {{$key==0?'active':''}}">
                     <img class="w-100 d-none d-md-block" src="{{asset($slider->image)}}" alt="Image">
                     <img class="w-100 d-block d-md-none" src="{{asset($slider->mobile_image)}}" alt="Image">
-                    <div class="carousel-caption">
+                    {{-- <div class="carousel-caption">
                         <div class="container">
                             <div class="row justify-content-start">
                                 <div class="col-lg-8">
@@ -20,7 +20,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             @endforeach
 
