@@ -49,7 +49,7 @@
                     <div class="col-md-3">
                         <input type="file" name="image" id="image" class="photo" accept="image/*" data-default-file="{{asset($team->image)}}"  >
                     </div>
-                    
+
                     <div class="col-md-12"></div>
                     <div class="col-md-6">
                         <label for="name">Name</label>
@@ -63,7 +63,7 @@
                             <label for="phone">Phone No</label>
                             <input type="tel" name="phone" id="phone" required class="form-control" value="{{$team->phone}}" required>
                     </div>
-                   
+
                     <div class="col-md-3">
                         <label for="designation">Designation</label>
                         <input type="text" name="designation" id="designation"  class="form-control" required value="{{$team->designation}}">
@@ -109,7 +109,7 @@
     <script src="{{ asset('admin/plugins/drophify/js/dropify.min.js') }}"></script>
     <script>
         var state = false;
-      
+
         $(function() {
             $('.photo').dropify();
             tinymce.init({
@@ -120,15 +120,14 @@
                     ' searchreplace table template  visualblocks wordcount '
                 ],
                 toolbar_mode: 'floating',
-              
+
             });
-            $('#add-team').submit(function (e) { 
+            $('#add-team').submit(function (e) {
                 e.preventDefault();
                 axios.post(this.action,new FormData(this))
                 .then((res)=>{
                     toastr.success('Member Updated Sucessfully');
-                    this.reset();
-                    $(".dropify-clear").trigger('click');
+
                 })
                 .catch((err)=>{
                     toastr.error('Member Not Updated, Some Error Occured');

@@ -87,5 +87,25 @@
                 </div>
             </div>
         </div>
+
+        @if (count($data->others))
+            <h4 class="mt-5">Contact Persons</h4>
+            <hr>
+                <div class="row">
+                    <div class="col-md-3"><strong>Name</strong></div>
+                    <div class="col-md-3"><strong>Designation</strong></div>
+                    <div class="col-md-3"><strong>Phone</strong></div>
+                    <div class="col-md-3"><strong>Email</strong></div>
+                </div>
+                @foreach ($data->others as $other)
+                <hr>
+                <div class="row">
+                    <div class="col-md-3"><strong>{{$other->name}}</strong></div>
+                    <div class="col-md-3">{{$other->designation}}</div>
+                    <div class="col-md-3"><a href="tel:{{$other->phone}}">{{$other->phone}}</a></div>
+                    <div class="col-md-3"><a href="email:{{$other->email}}">{{$other->email}}</a></div>
+                </div>
+                @endforeach
+        @endif
     </div>
 </div>

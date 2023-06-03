@@ -81,6 +81,7 @@ class TeamController extends Controller
     public function edit(Request $request,Team  $team)
     {
         if($request->getMethod()=="POST"){
+            $team->name=$request->name;
             $team->email=$request->email;
             $team->phone=$request->phone;
             if($request->hasFile('image')){
@@ -119,7 +120,7 @@ class TeamController extends Controller
                 if($mainTeamType==null){
                     $mainTeamType=$teamTypes->first();
                 }
-                $mainTeams=$teams->where('team_type_id',$mainTeamType->id)->take(5)->sortByDesc('sn')->values();
+                $mainTeams=$teams->where('team_type_id',$mainTeamType->id)->take(5)->sortBy('sn')->values();
 
                 file_put_contents( resource_path('views/front/pages/home/board.blade.php'),view('admin.team.template.home',compact('mainTeamType','mainTeams'))->render());
                 file_put_contents( resource_path('views/front/pages/partials/team.blade.php'),view('admin.team.template.list',compact('teamTypes','teams'))->render());
