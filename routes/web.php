@@ -42,12 +42,11 @@ Route::get('page/{id}', [HomeController::class, 'page'])->name('page');
 Route::get('galleries', [HomeController::class, 'galleryType'])->name('gallery.type');
 Route::get('gallery/{id}', [HomeController::class, 'gallery'])->name('gallery');
 
-Route::get('pdfgalleries', [HomeController::class, 'pdfGallery'])->name('gallery.pdf');
+Route::get('downloads', [HomeController::class, 'pdfGallery'])->name('downloads');
 
 Route::get('teams', [HomeController::class, 'teamType'])->name('team.type');
 Route::get('team/{id}', [HomeController::class, 'team'])->name('team');
 
-Route::get('downloads', [HomeController::class, 'downloads'])->name('downloads');
 Route::get('contact', [HomeController::class, 'contact'])->name('contact');
 
 

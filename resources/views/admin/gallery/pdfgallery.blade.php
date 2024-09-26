@@ -24,7 +24,7 @@
 @endsection
 @section('s-title')
     <li class="breadcrumb-item active">
-        PDF
+        PDFS
     </li>
 @endsection
 @section('content')

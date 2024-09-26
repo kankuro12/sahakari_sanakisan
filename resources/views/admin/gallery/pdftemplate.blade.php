@@ -1,22 +1,22 @@
-<table id="myTable" class="display">
+<table id="myTable" >
     <thead>
         <tr>
             <th>Title</th>
-            <th>PUblished date</th>
+            <th>Published date</th>
             <th>Download</th>
         </tr>
     </thead>
     <tbody>
-        @foreach ($pdfgalleries as $pdf)
+        @foreach ($pdfgalleries as $item)
             <tr>
                 <td>
-                    {{ $pdf->title }}
+                    {{ $item->title }}
                 </td>
                 <td>
-                    {{ $pdf->date }}
+                    {{ $item->date }}
                 </td>
                 <td>
-                    <a href="{{asset($pdf->pdf)}}" download> Download</a>
+                    <a href="{{asset($item->pdf)}}" download> Download</a>
                 </td>
             </tr>
         @endforeach
