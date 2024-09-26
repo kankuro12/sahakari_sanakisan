@@ -41,3 +41,4 @@ resources/views/front/includes/headersocial.blade.php
 resources/views/front/includes/top.blade.php
 resources/views/front/includes/footerser.blade.php
 resources/views/front/includes/icon.blade.php
+resources/views/front/pages/partials/pdfgalleries.blade.php
