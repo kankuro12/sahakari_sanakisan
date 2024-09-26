@@ -42,6 +42,8 @@ Route::get('page/{id}', [HomeController::class, 'page'])->name('page');
 Route::get('galleries', [HomeController::class, 'galleryType'])->name('gallery.type');
 Route::get('gallery/{id}', [HomeController::class, 'gallery'])->name('gallery');
 
+Route::get('pdfgalleries', [HomeController::class, 'pdfGallery'])->name('gallery.pdf');
+
 Route::get('teams', [HomeController::class, 'teamType'])->name('team.type');
 Route::get('team/{id}', [HomeController::class, 'team'])->name('team');
 
@@ -155,7 +157,12 @@ Route::prefix('admin')->name('admin.')->group(function () {
                     Route::match(['get', 'post'], 'edit/{type}', [GalleryController::class, 'editType'])->name('edit');
                     Route::match(['get', 'post'], 'del/{type}', [GalleryController::class, 'delType'])->name('del');
                 });
-
+                Route::prefix('pdf')->name('pdf.')->group(function(){
+                    Route::get('', [GalleryController::class, 'indexPdf'])->name('index');
+                    Route::match(['get', 'post'], 'add', [GalleryController::class, 'addPdf'])->name('add');
+                    Route::match(['get', 'post'], 'edit/{pdf}', [GalleryController::class, 'editPdf'])->name('edit');
+                    Route::match(['get', 'post'], 'del/{pdf}', [GalleryController::class, 'delPdf'])->name('del');
+                });
                 Route::get('manage/{type}', [GalleryController::class, 'index'])->name('index');
                 Route::match(['get', 'post'], 'add', [GalleryController::class, 'add'])->name('add');
                 Route::match(['get', 'post'], 'edit/{gallery}', [GalleryController::class, 'edit'])->name('edit');

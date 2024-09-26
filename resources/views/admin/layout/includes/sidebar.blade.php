@@ -18,6 +18,12 @@
                 </a>
 
             </li>
+            <li>
+                <a href="{{route('admin.setting.gallery.pdf.index')}}">
+                    <i class="material-icons">collections</i>
+                    Document
+                </a>
+            </li>
             {{-- <li>
                 <a href="{{route('admin.download.type.index')}}">
                     <i class="material-icons">download</i>

@@ -111,7 +111,9 @@ class HomeController extends Controller
         return view('front.pages.gallery.list');
 
     }
-
+    public function pdfGallery(){
+        return view('front.pages.gallery.pdfgallery');
+    }
     public function gallery($id)
     {
         $type=DB::table('gallery_types')->where('id',$id)->first();
