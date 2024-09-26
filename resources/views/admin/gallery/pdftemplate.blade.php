@@ -1,4 +1,4 @@
-<table id="myTable" >
+<table id="myTable" class="display shadow">
     <thead>
         <tr>
             <th>Title</th>

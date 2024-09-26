@@ -10,7 +10,7 @@
 @section('meta')
 @endsection
 @section('css')
-<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/2.1.7/css/dataTables.dataTables.css" />
 @endsection
 @section('title')
     - PDF
@@ -19,14 +19,13 @@
     PDF
 @endsection
 @section('pagecontent')
-    <div class="container">
+    <div class="container p-2">
         @includeIf('front.pages.partials.pdfgalleries')
     </div>
 @endsection
 @section('js')
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-
+<script src="https://cdn.datatables.net/2.1.7/js/dataTables.js"></script>
 <script>
     $(document).ready(function() {
         $('#myTable').DataTable();

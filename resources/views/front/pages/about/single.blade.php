@@ -19,8 +19,6 @@
             border-radius: 5px;
 
         }
-
-
         .about-holder {
             display: block;
             color: black;

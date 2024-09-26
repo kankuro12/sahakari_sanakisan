@@ -54,7 +54,7 @@
                             <input type="file" name="pdf" id="pdf" class="form-control photo" accept="application/pdf "  required>
                         </div>
                         <div class="py-2">
-                            <button class="btn btn-primary">Add Gallery</button>
+                            <button class="btn btn-primary">Add PDF </button>
                         </div>
                     </form>
                 </div>
