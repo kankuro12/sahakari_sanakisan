@@ -16,7 +16,7 @@ class CreatePdfGalleriesTable extends Migration
         Schema::create('pdf_galleries', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->date('date');
+            $table->text('date');
             $table->text('pdf');
             $table->string('mode');
             $table->timestamps();

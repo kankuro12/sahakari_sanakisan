@@ -21,7 +21,7 @@
             <li>
                 <a href="{{route('admin.setting.gallery.pdf.index')}}">
                     <i class="material-icons">collections</i>
-                    Document
+                    Downloads
                 </a>
             </li>
             {{-- <li>

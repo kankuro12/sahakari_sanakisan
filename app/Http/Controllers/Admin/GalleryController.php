@@ -137,8 +137,7 @@ class GalleryController extends Controller
     }
     public function renderpdf()
     {
-        $pdfgalleries = DB::table('pdf_galleries')->get();
-        // dd($pdfgalleries);
+        $pdfgalleries = DB::table('pdf_galleries')->where("mode","public")->get();
         file_put_contents(resource_path('views/front/pages/partials/pdfgalleries.blade.php'), view('admin.gallery.pdftemplate', compact('pdfgalleries'))->render());
     }
 }
