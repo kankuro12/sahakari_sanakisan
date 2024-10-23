@@ -79,7 +79,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                    &copy; <a class="border-bottom">@ {{ env('APP_NAME') }}</a>, All Right Reserved.
+                    &copy; <a class="border-bottom">@ {{ config('app.name') }}</a>, All Right Reserved.
                 </div>
 
             </div>
