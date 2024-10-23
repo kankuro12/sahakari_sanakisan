@@ -68,6 +68,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
         route::match(['GET', 'POST'], 'login', [AuthController::class, 'login'])->name('login');
     });
     Route::middleware(['auth', 'role:1'])->group(function () {
+        route::match(['GET', 'POST'], 'logout', [AuthController::class, 'logout'])->name('logout');
+        route::match(['GET', 'POST'], 'change-password', [AuthController::class, 'changePassword'])->name('change.password');
+
         Route::match(['GET', 'POST'], 'upload', [DashboardController::class, 'upload'])->name('upload');
 
         Route::prefix('dashboard')->name('dashboard.')->group(function () {
