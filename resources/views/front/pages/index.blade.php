@@ -78,7 +78,6 @@
                 // element == this
                 const myModal = new bootstrap.Modal(element, {})
                 myModal.show()
-
             });
 
         });
