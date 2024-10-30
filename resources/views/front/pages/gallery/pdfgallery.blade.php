@@ -44,7 +44,7 @@
             const searchInput = document.getElementById('searchInput');
             const pagination = document.querySelector('.pagination');
             let filteredItems = [...pdfItems]; // Keep track of filtered items
-            const itemsPerPage = 4; // Set items per page
+            const itemsPerPage = 6; // Set items per page
             let currentPage = 1; // Default page
 
             // Function to paginate and display items
