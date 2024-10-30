@@ -30,11 +30,18 @@
 @section('content')
     <div class="bg-white shadow mb-3">
         <div class="card-body">
-            <div class="row">
-                <div class="col-md-4">
-                    <form class="p-2 shadow" action="{{ route('admin.setting.gallery.pdf.add') }}"
-                        enctype="multipart/form-data" method="post">
-                        @csrf
+            <form class="p-2 shadow" action="{{ route('admin.setting.gallery.pdf.add') }}" enctype="multipart/form-data"
+                method="post">
+                @csrf
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="pdf">Pdf</label>
+                            <input type="file" name="pdf" id="pdf" class="form-control photo"
+                                accept="application/pdf " required>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
                         <div class="form-group">
                             <label for="title">Title</label>
                             <input type="text" name="title" id="title" class="form-control" required>
@@ -50,18 +57,23 @@
                                 <option value="private">Private</option>
                             </select>
                         </div>
-                        <div class="form-group">
-                            <label for="pdf">Pdf</label>
-                            <input type="file" name="pdf" id="pdf" class="form-control photo"
-                                accept="application/pdf " required>
-                        </div>
                         <div class="py-2">
                             <button class="btn btn-primary">Add PDF </button>
                         </div>
-                    </form>
+                    </div>
+                </div>
+            </form>
+            <div class="row">
+                <div class="col-md-4 mb-3 mt-3">
+                    <label for="mode-filter">Filter by Mode</label>
+                    <select id="mode-filter" class="form-control">
+                        <option value="all">All</option>
+                        <option value="public">Public</option>
+                        <option value="private">Private</option>
+                    </select>
                 </div>
 
-                <div class="col-md-8">
+                <div class="col-md-12 mt-3">
                     <table id="pdf-table" class="table table-bordered table-striped">
                         <thead>
                             <tr>
@@ -74,18 +86,14 @@
                         </thead>
                         <tbody>
                             @foreach ($pdfs as $pdf)
-                                <tr id="pdf-{{ $pdf->id }}">
+                                <tr id="pdf-{{ $pdf->id }}" data-mode="{{ $pdf->mode }}">
                                     <td>{{ $pdf->title }}</td>
                                     <td>{{ $pdf->date }}</td>
-                                    <td>{{ ($pdf->mode) }}</td>
+                                    <td>{{ $pdf->mode }}</td>
                                     <td>
                                         <a href="{{ asset($pdf->pdf) }}" target="_blank">View Document</a>
                                     </td>
                                     <td>
-                                        {{-- <form class="d-inline" action="{{ route('admin.setting.gallery.pdf.edit', ['pdf' => $pdf->id]) }}" method="post" enctype="multipart/form-data">
-                                            @csrf
-                                            <button class="btn btn-secondary">Update</button>
-                                        </form> --}}
                                         <a onclick="return prompt('Enter yes To Continue.')=='yes';"
                                             href="{{ route('admin.setting.gallery.pdf.del', ['pdf' => $pdf->id]) }}"
                                             class="btn btn-danger">Del</a>
@@ -107,6 +115,17 @@
         $(document).ready(function() {
             $('.photo').dropify();
             $('#pdf-table').DataTable();
+            $('#mode-filter').on('change', function() {
+                var selectedMode = $(this).val();
+                $('#pdf-table tbody tr').each(function() {
+                    var rowMode = $(this).data('mode');
+                    if (selectedMode === 'all' || rowMode === selectedMode) {
+                        $(this).show();
+                    } else {
+                        $(this).hide();
+                    }
+                });
+            });
         });
     </script>
     @include('admin.layout.datepicker');

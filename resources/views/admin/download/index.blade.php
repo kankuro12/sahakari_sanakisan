@@ -54,7 +54,6 @@
             justify-content: center;
             color: #fff;
         }
-
     </style>
 @endsection
 @section('page-option')
@@ -106,15 +105,8 @@
             @endforeach
         </div>
     </div>
-
-
-
-
-
-
 @endsection
 @section('script')
-
     <script>
         const delurl = "{{ route('admin.download.del', ['download' => 'xxx_id']) }}";
         $(document).ready(function() {
@@ -145,7 +137,7 @@
 
         function del(id, e) {
             e.preventDefault();
-            if (prompt('Type yes to delete')=='yes') {
+            if (prompt('Type yes to delete') == 'yes') {
 
                 url = delurl.replace('xxx_id', id);
                 axios.get(url)
@@ -159,5 +151,4 @@
             }
         }
     </script>
-
 @endsection
