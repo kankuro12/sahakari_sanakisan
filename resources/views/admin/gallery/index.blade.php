@@ -79,7 +79,7 @@
 @endsection
 @section('s-title')
     <li class="breadcrumb-item ">
-        Galleries
+      <a href="{{route('admin.setting.gallery.type.index')}}">Galleries</a>
     </li>
     <li class="breadcrumb-item active">
         {{ $type->name }}
@@ -102,9 +102,6 @@
     <div class="bg-white shadow mt-3">
         <div class="card-body">
             <div id="images" class="row">
-                {{-- @php
-                    dd($type->images);
-                @endphp --}}
                 @foreach ($type->images as $image)
                 <div class="col-md-3 p-0" id="img-{{$image->id}}">
                     <div id="image-{{$image->id}}"class="single-image">
@@ -133,14 +130,6 @@
 @section('script')
     <script>
         var f,i=0,blobs=[];
-
-        // function change() {
-        //     var f=new formdata();
-        //     $('.single-upload>img').each(function (index, element) {
-        //         f.append('data[]',)
-
-        //     });
-        // }
         function remove(sn) {
             $('#single-upload-'+sn).remove();
             delete( blobs['b_'+sn]);
@@ -212,8 +201,6 @@
                 $('#img-'+id).remove();
             })
         }
-
-
     </script>
 
 @endsection

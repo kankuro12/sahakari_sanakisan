@@ -1,12 +1,19 @@
 <!-- Navbar Start -->
 <style>
-    @media(max-width:425px) {
+
+    .h-logo img {
+        max-width: 150px;
+        height: auto;
+    }
+
+    /* Mobile-specific adjustments */
+    @media (max-width: 425px) {
         .h-logo {
             max-width: 250px;
         }
 
         .h-logo img {
-            width: 100%;
+            width: 100%; /* Scale image to fit the container */
         }
     }
 </style>
