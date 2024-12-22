@@ -18,7 +18,6 @@
         .tox {
             border-radius: 5px !important;
         }
-
     </style>
 @endsection
 @section('page-option')
@@ -28,14 +27,13 @@
         <a href="{{ route('admin.team.type.index') }}">Teams</a>
     </li>
     <li class="breadcrumb-item">
-        <a href="{{ route('admin.team.index', ['type' => $type]) }}">{{  $type->name }}</a>
+        <a href="{{ route('admin.team.index', ['type' => $type]) }}">{{ $type->name }}</a>
     </li>
     <li class="breadcrumb-item active">
         Add
     </li>
 @endsection
 @section('content')
-
     <div class="card shadow mb-3">
         <div class="card-body">
             <form action="{{ route('admin.team.add', ['type' => $type]) }}" method="post" enctype="multipart/form-data"
@@ -44,7 +42,7 @@
                 @csrf
                 <div class="row">
                     <div class="col-md-3">
-                        <input type="file" name="image" id="image" class="photo" accept="image/*"  >
+                        <input type="file" name="image" id="image" class="photo" accept="image/*">
                     </div>
 
                     <div class="col-md-12"></div>
@@ -57,52 +55,52 @@
                         <input type="email" name="email" id="email" required class="form-control" required>
                     </div>
                     <div class="col-md-3">
-                            <label for="phone">Phone No</label>
-                            <input type="tel" name="phone" id="phone" required class="form-control" required>
+                        <label for="phone">Phone No</label>
+                        <input type="tel" name="phone" id="phone" required class="form-control" required>
                     </div>
 
                     <div class="col-md-3">
                         <label for="designation">Designation</label>
-                        <input type="text" name="designation" id="designation"  class="form-control" required>
+                        <input type="text" name="designation" id="designation" class="form-control" required>
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="addr">Address</label>
-                        <input type="text" name="addr" id="addr"  class="form-control">
+                        <input type="text" name="addr" id="addr" class="form-control">
                     </div>
                     <div class="col-md-4">
                         <label for="fb">Facebook URL</label>
-                        <input type="text" name="fb" id="fb"  class="form-control" >
+                        <input type="text" name="fb" id="fb" class="form-control">
                     </div>
                     <div class="col-md-4">
                         <label for="tw">Twitter URL</label>
-                        <input type="text" name="tw" id="tw"  class="form-control" >
+                        <input type="text" name="tw" id="tw" class="form-control">
                     </div>
                     <div class="col-md-4">
                         <label for="li">Linkedin URL</label>
-                        <input type="text" name="li" id="li"  class="form-control" >
+                        <input type="text" name="li" id="li" class="form-control">
                     </div>
                     <div class="col-md-12 mb-2">
                         <label for="desc">Description</label>
-                        <textarea name="desc" id="desc"  rows="4" class="form-control desc"></textarea>
+                        <textarea name="desc" id="desc" rows="4" class="form-control desc"></textarea>
                     </div>
                     <div class="col-md-2">
-                        <input type="number" name="SN" placeholder="SN" id="sn" min="0" class="form-control">
+                        <input type="number" name="SN" placeholder="SN" id="sn" min="0"
+                            class="form-control">
                     </div>
                     <div class="col-md-6 py-2">
                         <button class="btn btn-primary">Save Member</button>
 
-                        <a href="{{route('admin.team.index',['type'=>$type->id])}}" class="btn btn-danger">Cancel</a>
+                        <a href="{{ route('admin.team.index', ['type' => $type->id]) }}" class="btn btn-danger">Cancel</a>
 
                     </div>
                 </div>
             </form>
         </div>
     </div>
-
 @endsection
 @section('script')
-<script src="https://cdn.tiny.cloud/1/{{config(app.TINYMCE_API_KEY)}}/tinymce/5/tinymce.min.js"
-referrerpolicy="origin"></script>
+    <script src="https://cdn.tiny.cloud/1/y1vs71r5luez7345k9sfkmptt3vubw5g8mrq7hs16pz4uy2j/tinymce/5/tinymce.min.js"
+        referrerpolicy="origin"></script>
 
     <script src="{{ asset('admin/plugins/drophify/js/dropify.min.js') }}"></script>
     <script>
@@ -120,17 +118,17 @@ referrerpolicy="origin"></script>
                 toolbar_mode: 'floating',
 
             });
-            $('#add-team').submit(function (e) {
+            $('#add-team').submit(function(e) {
                 e.preventDefault();
-                axios.post(this.action,new FormData(this))
-                .then((res)=>{
-                    toastr.success('Member Saved Sucessfully');
-                    this.reset();
-                    $(".dropify-clear").trigger('click');
-                })
-                .catch((err)=>{
-                    toastr.error('Member Not Saved, Some Error Occured');
-                });
+                axios.post(this.action, new FormData(this))
+                    .then((res) => {
+                        toastr.success('Member Saved Sucessfully');
+                        this.reset();
+                        $(".dropify-clear").trigger('click');
+                    })
+                    .catch((err) => {
+                        toastr.error('Member Not Saved, Some Error Occured');
+                    });
             });
         });
     </script>

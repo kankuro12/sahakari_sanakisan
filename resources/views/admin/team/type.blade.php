@@ -25,7 +25,7 @@
 <button type="button" class="btn btn-primary" onclick="initAdd(0);">
     Add New Type
   </button>
-  
+
 @endsection
 @section('s-title')
     <li class="breadcrumb-item active">
@@ -55,11 +55,11 @@
                                         <div class="h-100 pb-3 d-flex justify-content-start align-items-end">
                                             <button class="ml-2 btn btn-secondary">Update</button>
                                             <a  href="{{route('admin.team.index',['type'=>$type->id])}}"   class="ml-2 btn btn-success">Manage</a>
-                                            <a onclick="return prompt('Enter yes To Continue.')=='yes';" href="{{route('admin.setting.gallery.type.del',['type'=>$type->id])}}" class="ml-2 btn btn-danger">Del</a>
+                                            <a onclick="return prompt('Enter yes To Continue.')=='yes';" href="{{route('admin.team.type.del',['type'=>$type->id])}}" class="ml-2 btn btn-danger">Del</a>
                                         </div>
                                     </div>
                                 </div>
-                               
+
                             </form>
                             {{-- <div class="p-3">
 
@@ -75,14 +75,14 @@
                                             @csrf
                                             <div class="row">
                                                 <div class="col-md-7">
-            
+
                                                     <div class="form-group">
                                                         <label for="name">Name</label>
                                                         <input type="text" value="{{$child->name}}" name="name" id="name" class="form-control" required>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-5">
-            
+
                                                     <div class="h-100 pb-3 d-flex justify-content-start align-items-end">
                                                         <button class="ml-2 btn btn-secondary">Update</button>
                                                         <a  href="{{route('admin.team.index',['type'=>$child->id])}}"   class="ml-2 btn btn-success">Manage</a>
@@ -90,7 +90,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                           
+
                                         </form>
                                         @endforeach
                                     </div>
@@ -120,12 +120,12 @@
                         <label for="name">Name</label>
                         <input type="text" name="name" id="name" class="form-control" required>
                     </div>
-                  
+
                     <div class="py-2">
                         <button class="btn btn-primary">Add team Type</button>
                     </div>
                 </form>
-            </div>          
+            </div>
           </div>
         </div>
       </div>

@@ -24,7 +24,7 @@
 @endsection
 @section('s-title')
     <li class="breadcrumb-item">
-        <a href="{{ route('admin.service.index') }}">Services</a>
+        <a href="{{ route('admin.service.type.index') }}">Services</a>
     </li>
     <li class="breadcrumb-item">
         <a href="{{ route('admin.service.index', ['type' => $type]) }}">{{ $type->name }}</a>
@@ -74,7 +74,7 @@
     </div>
 @endsection
 @section('script')
-    <script src="https://cdn.tiny.cloud/1/{{ env('TINYMCE_API_KEY') }}/tinymce/5/tinymce.min.js" referrerpolicy="origin">
+    <script src="https://cdn.tiny.cloud/1/{{ config('app.TINYMCE_API_KEY') }}/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     </script>
     <script src="{{ asset('admin/plugins/drophify/js/dropify.min.js') }}"></script>
     <script>
