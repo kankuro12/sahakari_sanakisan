@@ -18,7 +18,6 @@
         .tox {
             border-radius: 5px !important;
         }
-
     </style>
 @endsection
 @section('page-option')
@@ -41,7 +40,6 @@
                 @csrf
                 <div class="row">
                     @if ($pageType[5])
-
                         <div class="col-md-4">
                             <label for="photo">Feature Image</label>
                             <input type="file" required name="photo" id="photo" accept="image/*">
@@ -55,23 +53,22 @@
                         </div>
                         <div>
                             <label for="short_desc">Short {{ $pageType[6] }}</label>
-                            <textarea name="short_desc" id="short_desc" cols="30" rows="10" class="form-control"
-                                ></textarea>
+                            <textarea name="short_desc" id="short_desc" cols="30" rows="10" class="form-control"></textarea>
                         </div>
                         @if (count($pageType[2]) > 0)
                             @foreach ($pageType[2] as $key => $descType)
                                 @php
-                                    $d=explode('|',$descType);
+                                    $d = explode('|', $descType);
                                 @endphp
-                                @if(count($d)>1)
-                                <label for="{{ $key }}">{{ $d[0] }}</label>
-                                <input type="{{$d[1]}}" name="{{ $key }}" id="{{ $key }}" class="form-control">
+                                @if (count($d) > 1)
+                                    <label for="{{ $key }}">{{ $d[0] }}</label>
+                                    <input type="{{ $d[1] }}" name="{{ $key }}" id="{{ $key }}"
+                                        class="form-control">
                                 @else
-                                <div>
-                                    <label for="{{ $key }}">{{ $descType }}</label>
-                                    <textarea name="{{ $key }}" id="{{ $key }}" cols="30" rows="10"
-                                        class="form-control desc"></textarea>
-                                </div>
+                                    <div>
+                                        <label for="{{ $key }}">{{ $descType }}</label>
+                                        <textarea name="{{ $key }}" id="{{ $key }}" cols="30" rows="10" class="form-control desc"></textarea>
+                                    </div>
                                 @endif
                             @endforeach
                         @else
@@ -123,29 +120,34 @@
 
 @endsection
 @section('script')
-<script src="https://cdn.tiny.cloud/1/{{config(app.TINYMCE_API_KEY)}}/tinymce/5/tinymce.min.js"
-referrerpolicy="origin"></script>
+    <script src="https://cdn.tiny.cloud/1/{{ config('app.TINYMCE_API_KEY') }}/tinymce/5/tinymce.min.js"
+        referrerpolicy="origin"></script>
     <script src="{{ asset('admin/plugins/drophify/js/dropify.min.js') }}"></script>
     <script>
         @include('admin.layout.includes.tinysupport')
         var state = false;
         @if ($pageType[4] != null)
 
-            var did=0;
+            var did = 0;
 
             function addDocument(params) {
-            html='<div id="doc-'+did+'" class="col-md-{{ $pageType[5] ? '6' : '3' }}  mb-3"><div class="shadow p-2"><input type="hidden" name="docs[]" value="'+did+'" />'+
-                    '<div><input type="file" accept="image/*,.pdf,.docx" id="doc_image_'+did+'" name="doc_image_'+did+'"required /></div>'+
-                    '<div class="mt-2"><label class="w-100 d-block d-flex justify-content-between align-items-center">'+
-                            '<span>File Name</span>'+
-                            '<span class="btn btn-danger btn-sm" onclick="removeDoc('+did+')"> Remove</span>'+
-                            '</label><input class="form-control" type="text" id="doc_name_'+did+'" name="doc_name_'+did+'"required /></div>'+'</div> </div>';
-            $('#documents').append(html);
-            $("#doc_image_"+did).dropify();
-            did+=1;
+                html = '<div id="doc-' + did +
+                    '" class="col-md-{{ $pageType[5] ? '6' : '3' }}  mb-3"><div class="shadow p-2"><input type="hidden" name="docs[]" value="' +
+                    did + '" />' +
+                    '<div><input type="file" accept="image/*,.pdf,.docx" id="doc_image_' + did + '" name="doc_image_' +
+                    did + '"required /></div>' +
+                    '<div class="mt-2"><label class="w-100 d-block d-flex justify-content-between align-items-center">' +
+                    '<span>File Name</span>' +
+                    '<span class="btn btn-danger btn-sm" onclick="removeDoc(' + did + ')"> Remove</span>' +
+                    '</label><input class="form-control" type="text" id="doc_name_' + did + '" name="doc_name_' + did +
+                    '"required /></div>' + '</div> </div>';
+                $('#documents').append(html);
+                $("#doc_image_" + did).dropify();
+                did += 1;
             }
-            function removeDoc(id){
-            $('#doc-'+id).remove();
+
+            function removeDoc(id) {
+                $('#doc-' + id).remove();
             }
         @endif
         $(function() {

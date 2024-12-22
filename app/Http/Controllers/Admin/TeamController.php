@@ -13,118 +13,126 @@ class TeamController extends Controller
 {
     public function indexType()
     {
-        $types=TeamType::where('parent_id',0)->with('childs')->get(['id','name']);
+        $types = TeamType::where('parent_id', 0)->with('childs')->get(['id', 'name']);
         // dd($types);
-        return view('admin.team.type',compact('types'));
+        return view('admin.team.type', compact('types'));
     }
 
-    public function addType(Request $request){
-        $type=new TeamType();
-        $type->name=$request->name;
-        $type->parent_id=$request->parent_id??0;
+    public function addType(Request $request)
+    {
+        $type = new TeamType();
+        $type->name = $request->name;
+        $type->parent_id = $request->parent_id ?? 0;
         $type->save();
         $this->render();
 
-        return redirect()->back()->with('message','Team Type Added Sucessfully');
+        return redirect()->back()->with('message', 'Team Type Added Sucessfully');
     }
-    public function editType(Request $request,TeamType $type){
-        $type->name=$request->name;
+    public function editType(Request $request, TeamType $type)
+    {
+        $type->name = $request->name;
 
         $type->save();
         $this->render();
 
         // dd($type);
-        return redirect()->back()->with('message','Team Type Updated Sucessfully');
+        return redirect()->back()->with('message', 'Team Type Updated Sucessfully');
     }
 
-    public function delType(Request $request,TeamType $type){
-        if($type->parent_id==0){
-            TeamType::where('parent_id',$type->id)->update(['parent_id'=>null]);
+    public function delType(Request $request, TeamType $type)
+    {
+        if ($type->parent_id == 0) {
+            TeamType::where('parent_id', $type->id)->update(['parent_id' => null]);
         }
 
         $type->delete();
         $this->render();
 
-        return redirect()->back()->with('message','Team Type Deleted Sucessfully');
+        return redirect()->back()->with('message', 'Team Type Deleted Sucessfully');
     }
 
     public function index(TeamType $type)
     {
-        return view('admin.team.index',compact('type'));
+        return view('admin.team.index', compact('type'));
     }
-    public function add(Request $request,TeamType $type)
+    public function add(Request $request, TeamType $type)
     {
-        if($request->getMethod()=="POST"){
-            $team=new Team();
-            $team->name=$request->name;
-            $team->email=$request->email;
-            $team->phone=$request->phone;
-            $team->image=$request->image->store('uploads/team');
-            $team->designation=$request->designation;
-            $team->desc=$request->desc;
-            $team->addr=$request->addr;
-            $team->li=$request->li;
-            $team->tw=$request->tw;
-            $team->fb=$request->fb;
-            $team->sn=$request->SN??0;
-            $team->team_type_id=$type->id;
+        if ($request->getMethod() == "POST") {
+            $team = new Team();
+            $team->name = $request->name;
+            $team->email = $request->email;
+            $team->phone = $request->phone;
+            $team->image = $request->image->store('uploads/team');
+            $team->designation = $request->designation;
+            $team->desc = $request->desc;
+            $team->addr = $request->addr;
+            $team->li = $request->li;
+            $team->tw = $request->tw;
+            $team->fb = $request->fb;
+            $team->sn = $request->SN ?? 0;
+            $team->team_type_id = $type->id;
             // $team->extra=$request->extra??'';
             $team->save();
             $this->render();
 
-            return response()->json(['status'=>true]);
-        }else{
-            return view('admin.team.add',compact('type'));
+            return response()->json(['status' => true]);
+        } else {
+            return view('admin.team.add', compact('type'));
         }
     }
 
-    public function edit(Request $request,Team  $team)
+    public function edit(Request $request, Team  $team)
     {
-        if($request->getMethod()=="POST"){
-            $team->name=$request->name;
-            $team->email=$request->email;
-            $team->phone=$request->phone;
-            if($request->hasFile('image')){
-                $team->image=$request->image->store('uploads/team');
+        if ($request->getMethod() == "POST") {
+            $team->name = $request->name;
+            $team->email = $request->email;
+            $team->phone = $request->phone;
+            if ($request->hasFile('image')) {
+                $team->image = $request->image->store('uploads/team');
             }
-            $team->designation=$request->designation;
-            $team->desc=$request->desc;
-            $team->addr=$request->addr;
-            $team->li=$request->li;
-            $team->tw=$request->tw;
-            $team->fb=$request->fb;
-            $team->sn=$request->SN??0;
+            $team->designation = $request->designation;
+            $team->desc = $request->desc;
+            $team->addr = $request->addr;
+            $team->li = $request->li;
+            $team->tw = $request->tw;
+            $team->fb = $request->fb;
+            $team->sn = $request->SN ?? 0;
             $team->save();
             $this->render();
-            return response()->json(['status'=>true]);
-        }else{
-            return view('admin.team.edit',compact('team'));
+            return response()->json(['status' => true]);
+        } else {
+            return view('admin.team.edit', compact('team'));
         }
     }
 
+    public function del($team)
+    {
+        Team::where('id', $team)->delete();
+        $this->render();
+        return redirect()->back()->with('success');
+    }
     public function render()
     {
-        $teamTypes=DB::table('team_types')->get();
-        if($teamTypes->count()==0){
+        $teamTypes = DB::table('team_types')->get();
+        if ($teamTypes->count() == 0) {
             File::delete(resource_path('views/front/pages/home/board.blade.php'));
             File::delete(resource_path('views/front/pages/partials/team.blade.php'));
-        }else{
-                $teams=DB::table('teams')->get();
-                $main=env('board',-1);
-                if($main==-1){
-                    $mainTeamType=$teamTypes->first();
-                }else{
-                    $mainTeamType=$teamTypes->where('id',$main)->first();
-                }
+        } else {
+            $teams = DB::table('teams')->get();
+            $main = env('board', -1);
+            if ($main == -1) {
+                $mainTeamType = $teamTypes->first();
+            } else {
+                $mainTeamType = $teamTypes->where('id', $main)->first();
+            }
 
-                if($mainTeamType==null){
-                    $mainTeamType=$teamTypes->first();
-                }
-                $mainTeams=$teams->where('team_type_id',$mainTeamType->id)->take(5)->sortBy('sn')->values();
+            if ($mainTeamType == null) {
+                $mainTeamType = $teamTypes->first();
+            }
+            $mainTeams = $teams->where('team_type_id', $mainTeamType->id)->take(5)->sortBy('sn')->values();
 
-                file_put_contents( resource_path('views/front/pages/home/board.blade.php'),view('admin.team.template.home',compact('mainTeamType','mainTeams'))->render());
-                file_put_contents( resource_path('views/front/pages/partials/team.blade.php'),view('admin.team.template.list',compact('teamTypes','teams'))->render());
-
+            file_put_contents(resource_path('views/front/pages/home/board.blade.php'), view('admin.team.template.home', compact('mainTeamType', 'mainTeams'))->render());
+            file_put_contents(resource_path('views/front/pages/partials/team.blade.php'), view('admin.team.template.list', compact('teamTypes', 'teams'))->render());
         }
     }
 }

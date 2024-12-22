@@ -18,7 +18,6 @@
         .tox {
             border-radius: 5px !important;
         }
-
     </style>
 @endsection
 @section('page-option')
@@ -41,46 +40,46 @@
                 @csrf
                 <div class="row">
                     @if ($pageType[5])
-
                         <div class="col-md-4">
                             <label for="photo">Feature Image</label>
-                            <input type="file"  name="photo" id="photo" accept="image/*" data-default-file="{{asset($page->image)}}">
+                            <input type="file" name="photo" id="photo" accept="image/*"
+                                data-default-file="{{ asset($page->image) }}">
                         </div>
                     @endif
 
                     <div class="col-md-{{ $pageType[5] ? 8 : 12 }} py-2">
                         <div>
                             <label for="title">Title</label>
-                            <input type="text" value="{{$page->title}}" name="title" id="title" class="form-control" required>
+                            <input type="text" value="{{ $page->title }}" name="title" id="title"
+                                class="form-control" required>
                         </div>
                         <div>
                             <label for="short_desc">Short {{ $pageType[6] }}</label>
-                            <textarea name="short_desc" id="short_desc" cols="30" rows="10" class="form-control"
-                                required>{{$page->short_desc}}</textarea>
+                            <textarea name="short_desc" id="short_desc" cols="30" rows="10" class="form-control" required>{{ $page->short_desc }}</textarea>
                         </div>
                         @if (count($pageType[2]) > 0)
                             @php
-                                $desc=(array)(json_decode($page->desc));
+                                $desc = (array) json_decode($page->desc);
                             @endphp
                             @foreach ($pageType[2] as $key => $descType)
-                            @php
-                            $d=explode('|',$descType);
-                            @endphp
-                            @if(count($d)>1)
-                            <label for="{{ $key }}">{{ $d[0] }}</label>
-                            <input type="{{$d[1]}}" name="{{ $key }}" id="{{ $key }}" value="{{$desc[$key]??''}}"  class="form-control">
-                            @else
-                            <div>
-                                <label for="{{ $key }}">{{ $descType }}</label>
-                                <textarea name="{{ $key }}" id="{{ $key }}" cols="30" rows="10"
-                                    class="form-control desc">{!!$desc[$key]??''!!}</textarea>
-                            </div>
-                            @endif
+                                @php
+                                    $d = explode('|', $descType);
+                                @endphp
+                                @if (count($d) > 1)
+                                    <label for="{{ $key }}">{{ $d[0] }}</label>
+                                    <input type="{{ $d[1] }}" name="{{ $key }}" id="{{ $key }}"
+                                        value="{{ $desc[$key] ?? '' }}" class="form-control">
+                                @else
+                                    <div>
+                                        <label for="{{ $key }}">{{ $descType }}</label>
+                                        <textarea name="{{ $key }}" id="{{ $key }}" cols="30" rows="10" class="form-control desc">{!! $desc[$key] ?? '' !!}</textarea>
+                                    </div>
+                                @endif
                             @endforeach
                         @else
                             <div>
                                 <label for="desc">Extra {{ $pageType[6] }}</label>
-                                <textarea name="desc" id="desc" cols="30" rows="10" class="desc form-control">{{$page->desc}}</textarea>
+                                <textarea name="desc" id="desc" cols="30" rows="10" class="desc form-control">{{ $page->desc }}</textarea>
                             </div>
                         @endif
 
@@ -104,16 +103,19 @@
                             <div class="col-md-12">
                                 <div class="row" id="documents">
                                     @foreach ($page->files as $file)
-                                        <div class="col-md-6" id="file-{{$file->id}}">
+                                        <div class="col-md-6" id="file-{{ $file->id }}">
                                             <div class="shadow p-2">
-                                                <input type="file" disabled class="photo" data-default-file="{{asset($file->file)}}">
+                                                <input type="file" disabled class="photo"
+                                                    data-default-file="{{ asset($file->file) }}">
                                                 <h6 class="p-2">
-                                                    {{$file->title}}
+                                                    {{ $file->title }}
                                                 </h6>
                                                 <hr>
                                                 <div class="py-2">
-                                                    <span class="btn btn-danger mr-1" onclick="delFile({{$file->id}})">del</span>
-                                                    <a href="{{asset($file->file)}}" target="_blank" class="btn btn-success">Preview</a>
+                                                    <span class="btn btn-danger mr-1"
+                                                        onclick="delFile({{ $file->id }})">del</span>
+                                                    <a href="{{ asset($file->file) }}" target="_blank"
+                                                        class="btn btn-success">Preview</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -140,28 +142,33 @@
 
 @endsection
 @section('script')
-<script src="https://cdn.tiny.cloud/1/{{config(app.TINYMCE_API_KEY)}}/tinymce/5/tinymce.min.js"
-referrerpolicy="origin"></script>
+    <script src="https://cdn.tiny.cloud/1/{{ config('app.TINYMCE_API_KEY') }}/tinymce/5/tinymce.min.js"
+        referrerpolicy="origin"></script>
     <script src="{{ asset('admin/plugins/drophify/js/dropify.min.js') }}"></script>
     <script>
         var state = false;
         @if ($pageType[4] != null)
 
-            var did=0;
+            var did = 0;
 
             function addDocument(params) {
-            html='<div id="doc-'+did+'" class="col-md-{{ $pageType[5] ? '6' : '3' }}  mb-3"><div class="shadow p-2"><input type="hidden" name="docs[]" value="'+did+'" />'+
-                    '<div><input type="file" accept="image/*,.pdf,.docx" id="doc_image_'+did+'" name="doc_image_'+did+'"required /></div>'+
-                    '<div class="mt-2"><label class="w-100 d-block d-flex justify-content-between align-items-center">'+
-                            '<span>File Name</span>'+
-                            '<span class="btn btn-danger btn-sm" onclick="removeDoc('+did+')"> Remove</span>'+
-                            '</label><input class="form-control" type="text" id="doc_name_'+did+'" name="doc_name_'+did+'"required /></div>'+'</div> </div>';
-            $('#documents').append(html);
-            $("#doc_image_"+did).dropify();
-            did+=1;
+                html = '<div id="doc-' + did +
+                    '" class="col-md-{{ $pageType[5] ? '6' : '3' }}  mb-3"><div class="shadow p-2"><input type="hidden" name="docs[]" value="' +
+                    did + '" />' +
+                    '<div><input type="file" accept="image/*,.pdf,.docx" id="doc_image_' + did + '" name="doc_image_' +
+                    did + '"required /></div>' +
+                    '<div class="mt-2"><label class="w-100 d-block d-flex justify-content-between align-items-center">' +
+                    '<span>File Name</span>' +
+                    '<span class="btn btn-danger btn-sm" onclick="removeDoc(' + did + ')"> Remove</span>' +
+                    '</label><input class="form-control" type="text" id="doc_name_' + did + '" name="doc_name_' + did +
+                    '"required /></div>' + '</div> </div>';
+                $('#documents').append(html);
+                $("#doc_image_" + did).dropify();
+                did += 1;
             }
-            function removeDoc(id){
-            $('#doc-'+id).remove();
+
+            function removeDoc(id) {
+                $('#doc-' + id).remove();
             }
         @endif
 
@@ -174,17 +181,18 @@ referrerpolicy="origin"></script>
         });
 
         function delFile(id) {
-            if(prompt('Type YES to Delete file').toLowerCase()=='yes'){
-                axios.post('{{route('admin.page.delDoc')}}',{"id":id})
-                .then((res)=>{
-                    $('#file-'+id).remove();
-                    toastr.success('File Deleted Successfully');
-                })
-                .catch((err)=>{
-                    // toastr.
-                });
+            if (prompt('Type YES to Delete file').toLowerCase() == 'yes') {
+                axios.post('{{ route('admin.page.delDoc') }}', {
+                        "id": id
+                    })
+                    .then((res) => {
+                        $('#file-' + id).remove();
+                        toastr.success('File Deleted Successfully');
+                    })
+                    .catch((err) => {
+                        // toastr.
+                    });
             }
         }
-
     </script>
 @endsection
