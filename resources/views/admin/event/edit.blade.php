@@ -71,29 +71,29 @@
                                 <label for="end_time">Satart Time</label>
                                 <input type="time" name="end_time" id="end_time" class="form-control" required value="{{$event->end_time}}"end_time>
                             </div>
-                        
+
                         </div>
                         <div>
                             <label for="short_desc">Short Description</label>
                             <textarea name="short_desc" id="short_desc" cols="30" rows="10" class="form-control"
                                 >{{$event->short_Desc}}</textarea>
                         </div>
-                        
+
                         <div>
                             <label for="desc">full Description</label>
                             <textarea name="desc" id="desc" cols="30" rows="10" class="form-control desc"
                                 >{{$event->desc}}</textarea>
                         </div>
                         <div class="py-2">
-    
+
                             <button class="btn btn-primary">Save Event</button>
-    
+
                             <a href="{{ route('admin.event.index')}}"
                                 class=" ms-2 btn btn-danger">Cancel</a>
                         </div>
                     </div>
-                      
-                        
+
+
                     </div>
                 </div>
             </form>
@@ -102,11 +102,11 @@
 
 @endsection
 @section('script')
-    <script src="https://cdn.tiny.cloud/1/4adq2v7ufdcmebl96o9o9ga7ytomlez18tqixm9cbo46i9dn/tinymce/5/tinymce.min.js"
+    <script src="https://cdn.tiny.cloud/1/{{config(app.TINYMCE_API_KEY)}}/tinymce/5/tinymce.min.js"
         referrerpolicy="origin"></script>
     <script src="{{ asset('admin/plugins/drophify/js/dropify.min.js') }}"></script>
     <script>
-       
+
         $(function() {
             $('#photo').dropify();
             tinymce.init({
@@ -117,7 +117,7 @@
                     ' searchreplace table template  visualblocks wordcount '
                 ],
                 toolbar_mode: 'floating',
-              
+
             });
         });
     </script>

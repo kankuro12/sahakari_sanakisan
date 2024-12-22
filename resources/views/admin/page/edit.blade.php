@@ -140,8 +140,8 @@
 
 @endsection
 @section('script')
-    <script src="https://cdn.tiny.cloud/1/4adq2v7ufdcmebl96o9o9ga7ytomlez18tqixm9cbo46i9dn/tinymce/5/tinymce.min.js"
-        referrerpolicy="origin"></script>
+<script src="https://cdn.tiny.cloud/1/{{config(app.TINYMCE_API_KEY)}}/tinymce/5/tinymce.min.js"
+referrerpolicy="origin"></script>
     <script src="{{ asset('admin/plugins/drophify/js/dropify.min.js') }}"></script>
     <script>
         var state = false;

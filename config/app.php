@@ -232,4 +232,6 @@ return [
 
     ],
 
+    'TINYMCE_API_KEY'=>env('TINYMCE_API_KEY','')
+
 ];

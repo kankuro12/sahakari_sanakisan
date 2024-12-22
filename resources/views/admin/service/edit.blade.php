@@ -79,8 +79,8 @@
     </div>
 @endsection
 @section('script')
-    <script src="https://cdn.tiny.cloud/1/{{ env('TINYMCE_API_KEY') }}/tinymce/5/tinymce.min.js" referrerpolicy="origin">
-    </script>
+<script src="https://cdn.tiny.cloud/1/{{config(app.TINYMCE_API_KEY)}}/tinymce/5/tinymce.min.js"
+referrerpolicy="origin"></script>
     <script script src="{{ asset('admin/plugins/drophify/js/dropify.min.js') }}"></script>
     <script>
         var state = false;
