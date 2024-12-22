@@ -6,7 +6,7 @@
             <li>
                 <a href="{{route('admin.dashboard.index')}}">
                     <i class="material-icons">dashboard</i>
-                    dashboard
+                    Dashboard
                 </a>
 
             </li>

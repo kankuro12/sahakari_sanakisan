@@ -46,7 +46,7 @@
                     <div class="col-md-3">
                         <input type="file" name="image" id="image" class="photo" accept="image/*"  >
                     </div>
-                    
+
                     <div class="col-md-12"></div>
                     <div class="col-md-6">
                         <label for="name">Name</label>
@@ -60,7 +60,7 @@
                             <label for="phone">Phone No</label>
                             <input type="tel" name="phone" id="phone" required class="form-control" required>
                     </div>
-                   
+
                     <div class="col-md-3">
                         <label for="designation">Designation</label>
                         <input type="text" name="designation" id="designation"  class="form-control" required>
@@ -101,12 +101,12 @@
 
 @endsection
 @section('script')
-    <script src="https://cdn.tiny.cloud/1/4adq2v7ufdcmebl96o9o9ga7ytomlez18tqixm9cbo46i9dn/tinymce/5/tinymce.min.js"
-        referrerpolicy="origin"></script>
+<script src="https://cdn.tiny.cloud/1/{{ env('TINYMCE_API_KEY') }}/tinymce/5/tinymce.min.js" referrerpolicy="origin">
+
     <script src="{{ asset('admin/plugins/drophify/js/dropify.min.js') }}"></script>
     <script>
         var state = false;
-      
+
         $(function() {
             $('.photo').dropify();
             tinymce.init({
@@ -117,9 +117,9 @@
                     ' searchreplace table template  visualblocks wordcount '
                 ],
                 toolbar_mode: 'floating',
-              
+
             });
-            $('#add-team').submit(function (e) { 
+            $('#add-team').submit(function (e) {
                 e.preventDefault();
                 axios.post(this.action,new FormData(this))
                 .then((res)=>{
