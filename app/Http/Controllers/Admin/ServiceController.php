@@ -27,13 +27,11 @@ class ServiceController extends Controller
             if($request->hasFile('home_image')){
                 $type->home_image=$request->home_image->store('uploads/service');
             }
-
             $type->home_desc = $request->home_desc;
             $type->home_title = $request->home_title;
             $type->home_tiles = $request->home_tiles;
             $type->save();
             $this->render();
-
             return redirect()->back()->with('message', 'Service Type Added Sucessfully');
         }else{
             return view('admin.service.type.add');
@@ -61,15 +59,18 @@ class ServiceController extends Controller
         }
     }
 
-    public function delType(Request $request, ServiceType $type)
+    public function delType(Request $request, $type)
     {
-
-        $type->delete();
+        $services = Service::where('service_type_id', $type);
+        $hasServices = $services->exists();
+        if ($hasServices) {
+            $services->delete();
+        }
+        ServiceType::where('id', $type)->delete();
         $this->render();
 
         return redirect()->back()->with('message', 'Service Type Deleted Sucessfully');
     }
-
 
     public function index(ServiceType $type)
     {

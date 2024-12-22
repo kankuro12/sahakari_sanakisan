@@ -17,21 +17,17 @@
         .tox {
             border-radius: 5px !important;
         }
-
     </style>
 @endsection
 @section('page-option')
-<a href="{{route('admin.service.type.add')}}" class="btn btn-primary">Add New Type</a>
-
+    <a href="{{ route('admin.service.type.add') }}" class="btn btn-primary">Add New Type</a>
 @endsection
 @section('s-title')
     <li class="breadcrumb-item active">
-        Service Types
+        Services
     </li>
 @endsection
 @section('content')
-
-
     <div class="bg-white shadow mb-3">
         <div class="card-body">
             <table class="table">
@@ -39,7 +35,7 @@
                     <tr>
                         <th>
 
-                           Name
+                            Name
                         </th>
                         <th>
 
@@ -71,38 +67,38 @@
                     @foreach ($types as $type)
                         <tr>
                             <td>
-                                {{$type->name}}
+                                {{ $type->name }}
                             </td>
                             <td>
-                                {{$type->desc}}
+                                {{ $type->desc }}
                             </td>
                             <td>
-                                {{$type->home_tiles}}
+                                {{ $type->home_tiles }}
                             </td>
                             <td>
-                                {{$type->home_title}}
+                                {{ $type->home_title }}
                             </td>
                             <td>
-                                {{$type->home_desc}}
+                                {{ $type->home_desc }}
                             </td>
                             <td>
-                                @if ($type->home_image==null)
+                                @if ($type->home_image == null)
                                     Image Not Found
                                 @else
-                                    <img src="{{asset($type->home_image)}}" style="max-width:75px;" alt="">
-
+                                    <img src="{{ asset($type->home_image) }}" style="max-width:75px;" alt="">
                                 @endif
                             </td>
                             <td>
-                                <a class="text-primary" href="{{route('admin.service.type.edit',['type'=>$type->id])}}">
+                                <a class="text-primary" href="{{ route('admin.service.type.edit', ['type' => $type->id]) }}">
                                     Edit
                                 </a>
                                 <br>
-                                <a class="text-danger" onclick="prompt('Delete {{$type->name}}')=='yes';" href="{{route('admin.service.type.del',['type'=>$type->id])}}">
+                                <a class="text-danger" onclick="prompt('Delete {{ $type->name }}')=='yes';"
+                                    href="{{ route('admin.service.type.del', ['type' => $type->id]) }}">
                                     Del
                                 </a>
                                 <br>
-                                <a href="{{route('admin.service.index',['type'=>$type->id])}}">
+                                <a href="{{ route('admin.service.index', ['type' => $type->id]) }}">
                                     Manage
                                 </a>
                             </td>
@@ -114,10 +110,6 @@
 
         </div>
     </div>
-
-
-
 @endsection
 @section('script')
-
 @endsection

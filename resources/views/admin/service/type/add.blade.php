@@ -28,7 +28,7 @@
 @section('s-title')
     <li class="breadcrumb-item ">
         <a href="{{route('admin.service.type.index')}}">
-            Service Types
+            Services
         </a>
     </li>
     <li class="breadcrumb-item active">

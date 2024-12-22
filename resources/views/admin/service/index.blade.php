@@ -10,7 +10,7 @@
 @endsection
 @section('s-title')
     <li class="breadcrumb-item">
-        <a href="{{ route('admin.team.type.index') }}">Services</a>
+        <a href="{{ route('admin.service.index') }}">Services</a>
     </li>
     <li class="breadcrumb-item active">
         {{$type->name}}
