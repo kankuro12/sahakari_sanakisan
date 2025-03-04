@@ -13,7 +13,7 @@
             </div>
             <div class="col-lg-3 col-md-6">
                 <h4 class="text-white mb-4">Quick Links</h4>
-                <a class="btn btn-link" href="{{route('team.type')}}">Committees</a>
+                <a class="btn btn-link" href="{{route('team.type')}}">Team</a>
                 <a class="btn btn-link" href="{{route('service.types')}}">Our Services</a>
                 <a class="btn btn-link" href="{{route('page.type',['type'=>'about'])}}">About Us</a>
                 <a class="btn btn-link" href="{{route('contact')}}">Contact Us</a>

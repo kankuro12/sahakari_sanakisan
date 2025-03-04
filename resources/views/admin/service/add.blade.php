@@ -74,26 +74,13 @@
     </div>
 @endsection
 @section('script')
-    <script src="https://cdn.tiny.cloud/1/{{ config('app.TINYMCE_API_KEY') }}/tinymce/5/tinymce.min.js"
-        referrerpolicy="origin"></script>
-    </script>
+    @include('admin.layout.includes.tinysupport')
     <script src="{{ asset('admin/plugins/drophify/js/dropify.min.js') }}"></script>
     <script>
         var state = false;
-
         $(function() {
             $('.photo').dropify();
-            tinymce.init({
-                selector: '.desc',
-                plugins: [
-                    '  advlist anchor autolink codesample fullscreen help image imagetools tinydrive',
-                    ' lists link media noneditable  preview',
-                    ' searchreplace table template  visualblocks textcolor '
-                ],
-                toolbar_mode: 'floating',
-                toolbar: "fontselect formatselect fontsizeselect forecolor backcolor image table visualblocks anchor  blocks",
-
-            });
+            @include('admin.layout.includes.tiny')
             $('#add-service').submit(function(e) {
                 e.preventDefault();
                 axios.post(this.action, new FormData(this))

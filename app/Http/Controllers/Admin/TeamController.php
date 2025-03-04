@@ -62,7 +62,9 @@ class TeamController extends Controller
             $team->name = $request->name;
             $team->email = $request->email;
             $team->phone = $request->phone;
-            $team->image = $request->image->store('uploads/team');
+            if($request->hasFile('image')){
+                $team->image = $request->file('image')->store('uploads/team');
+            }
             $team->designation = $request->designation;
             $team->desc = $request->desc;
             $team->addr = $request->addr;
@@ -71,7 +73,6 @@ class TeamController extends Controller
             $team->fb = $request->fb;
             $team->sn = $request->SN ?? 0;
             $team->team_type_id = $type->id;
-            // $team->extra=$request->extra??'';
             $team->save();
             $this->render();
 

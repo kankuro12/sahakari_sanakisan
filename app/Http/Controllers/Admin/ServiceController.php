@@ -82,7 +82,9 @@ class ServiceController extends Controller
         if ($request->getMethod() == "POST") {
             $team = new Service();
             $team->name = $request->name;
-            $team->logo = $request->logo->store('uploads/service');
+            if($request->hasFile('logo')){
+                $team->logo = $request->file('logo')->store('uploads/service');
+            }
             $team->desc = $request->desc??"";
             $team->short_desc = $request->short_desc;
             $team->service_type_id = $type->id;
