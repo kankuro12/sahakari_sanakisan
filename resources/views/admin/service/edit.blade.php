@@ -45,7 +45,7 @@
                 @csrf
                 <div class="row">
                     <div class="col-md-3">
-                        <input type="file" name="logo" id="logo" class="photo" accept="image/*"
+                        <input type="file" name="logo" id="logo" class="form-control photo" accept="image/*"
                             data-default-file="{{ asset($service->logo) }}">
                     </div>
                     <div class="col-9">
@@ -79,8 +79,6 @@
     </div>
 @endsection
 @section('script')
- <script src="https://cdn.tiny.cloud/1/{{config(app.TINYMCE_API_KEY)}}/tinymce/5/tinymce.min.js"
-referrerpolicy="origin"></script>
     <script script src="{{ asset('admin/plugins/drophify/js/dropify.min.js') }}"></script>
     <script>
         var state = false;
