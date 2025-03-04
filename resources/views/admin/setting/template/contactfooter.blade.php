@@ -9,9 +9,6 @@
             'others' => [],
         ]);
 @endphp
-<p class="mb-2" class="d-flex"><i class="fa fa-map-marker me-3"></i> <span
-        style="word-wrap: break-word">{{ $data->addr }}</span></p>
-<p class="mb-2" class="d-flex"><i class="fa fa-phone me-3"></i> <span
-        style="word-wrap: break-word">{{ $data->phone }}</span></p>
-<p class="mb-2" class="d-flex"><i class="fa fa-envelope me-3"></i> <span
-        style="word-wrap: break-word">{{ $data->email }}</span></p>
+<p class="mb-2 d-flex" style="align-items: center; word-break: break-all;"><i class="fa fa-map-marker-alt me-3" ></i> <span class="text-wrap">{{ $data->addr }}</span></p>
+<p class="mb-2 d-flex" style="align-items: center; word-break: break-all;"><i class="fa fa-phone-alt me-3" ></i> <span style="word-wrap: break-word">{{ $data->phone }}</span></p>
+<p class="mb-2 d-flex" style="align-items: center; word-break: break-all;"><i class="fa fa-envelope me-3" ></i> <span class="text-wrap">{{ $data->email }}</span></p>
