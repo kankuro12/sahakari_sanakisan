@@ -2,18 +2,18 @@
 <style>
 
     .h-logo img {
-        max-width: 150px;
+        max-width: 90px;
         height: auto;
     }
 
     /* Mobile-specific adjustments */
     @media (max-width: 425px) {
         .h-logo {
-            max-width: 250px;
+            max-width: 90px;
         }
 
         .h-logo img {
-            width: 100%; /* Scale image to fit the container */
+            width: 100%;
         }
     }
 </style>
