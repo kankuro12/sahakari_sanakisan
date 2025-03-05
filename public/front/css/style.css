@@ -201,7 +201,7 @@ h6,
 
 .page-header {
     padding-top: 12rem;
-    padding-bottom: 6rem;
+    padding-bottom: 4rem;
     background: url(../img/header.jpg) top left no-repeat;
     background-size: cover;
 }
@@ -229,9 +229,9 @@ h6,
 
 .fact-container {
     background-image: linear-gradient(
-            rgba(53, 94, 252, 0.95),
-            rgba(53, 94, 252, 0.95)
-        );
+        rgba(53, 94, 252, 0.95),
+        rgba(53, 94, 252, 0.95)
+    );
     padding: 60px 0;
     background-position: 50%;
     background-repeat: no-repeat;
@@ -240,10 +240,13 @@ h6,
     position: relative;
 }
 .fact-container[_ngcontent-vjb-c94] .profile-card[_ngcontent-vjb-c94]:hover {
-    background-color:rgba(53, 94, 252, 0.3) ;
+    background-color: rgba(53, 94, 252, 0.3);
     border: 1px white solid;
 }
-.fact-container[_ngcontent-vjb-c94] .profile-card[_ngcontent-vjb-c94]:hover .icon[_ngcontent-vjb-c94] img[_ngcontent-vjb-c94] {
+.fact-container[_ngcontent-vjb-c94]
+    .profile-card[_ngcontent-vjb-c94]:hover
+    .icon[_ngcontent-vjb-c94]
+    img[_ngcontent-vjb-c94] {
     filter: brightness(0) invert(1);
 }
 .fact-container[_ngcontent-vjb-c94] .header[_ngcontent-vjb-c94] {
@@ -251,8 +254,12 @@ h6,
     color: #fff;
     margin-bottom: 25px;
 }
-.fact-container[_ngcontent-vjb-c94] .profile-card[_ngcontent-vjb-c94] .icon[_ngcontent-vjb-c94] img[_ngcontent-vjb-c94] {
-    filter: brightness(0) invert(0.25) sepia(1) saturate(4000%) hue-rotate(210deg);
+.fact-container[_ngcontent-vjb-c94]
+    .profile-card[_ngcontent-vjb-c94]
+    .icon[_ngcontent-vjb-c94]
+    img[_ngcontent-vjb-c94] {
+    filter: brightness(0) invert(0.25) sepia(1) saturate(4000%)
+        hue-rotate(210deg);
 }
 .fact-container .container .header {
     font-size: 2.074rem;
@@ -276,7 +283,7 @@ h6,
 .fact-container[_ngcontent-vjb-c94]
     .profile-card[_ngcontent-vjb-c94]
     .icon[_ngcontent-vjb-c94] {
-        color: #3F66FC;
+    color: #3f66fc;
     margin-bottom: 16px;
 }
 .profile-card[_ngcontent-vjb-c94] .icon[_ngcontent-vjb-c94] {
@@ -293,12 +300,13 @@ h6,
     color: #fff;
     text-align: center;
 }
-.fact-container[_ngcontent-vjb-c94] .profile-card[_ngcontent-vjb-c94] .profile-content[_ngcontent-vjb-c94] .countUp[_ngcontent-vjb-c94] {
+.fact-container[_ngcontent-vjb-c94]
+    .profile-card[_ngcontent-vjb-c94]
+    .profile-content[_ngcontent-vjb-c94]
+    .countUp[_ngcontent-vjb-c94] {
     font-size: 25px;
-    transition: all .4sease-in-out;
+    transition: all 0.4sease-in-out;
 }
-
-
 
 .callback {
     position: relative;
