@@ -216,17 +216,6 @@ h6,
 }
 
 /*** Facts ***/
-/* .facts {
-    background: linear-gradient(rgba(53, 94, 252, .95), rgba(53, 94, 252, .95)), url(../img/bg.png);
-}
-.facts .container .row .single{
-    padding: 20px 50px;
-    border: 1px solid white;
-    border-radius: 16px;
-    color: #3F66FC;
-    background-color: white;
-} */
-
 .fact-container {
     background-image: linear-gradient(
         rgba(53, 94, 252, 0.95),
