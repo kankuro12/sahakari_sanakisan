@@ -1,15 +1,11 @@
-<!-- Navbar Start -->
 <style>
-
     .h-logo img {
         max-width: 90px;
         height: auto;
     }
-
-    /* Mobile-specific adjustments */
     @media (max-width: 425px) {
         .h-logo {
-            max-width: 90px;
+            max-width: 70px;
         }
 
         .h-logo img {
