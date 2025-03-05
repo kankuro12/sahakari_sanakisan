@@ -134,7 +134,6 @@ class PageController extends Controller
 
         switch ($type) {
             case 'not':
-
                 $notices=DB::table('pages')->where('type',$type)->orderBy('created_at','desc')->take(4)->get();
                 file_put_contents( resource_path('views/front/pages/home/notice.blade.php'),view('admin.page.template.notice',compact('notices'))->render());
 
@@ -146,7 +145,6 @@ class PageController extends Controller
                 if($data!=null){
                     $data->desc = json_decode($data->desc);
                 }
-                // dd($data);
                 $abouts = DB::table('pages')->where('type', $type)->orderBy('created_at', 'desc')->paginate(10);
                 file_put_contents( resource_path('views/front/pages/partials/about.blade.php'),view('admin.page.template.about',compact('abouts','data'))->render());
 

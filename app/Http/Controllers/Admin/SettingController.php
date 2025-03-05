@@ -64,12 +64,12 @@ class SettingController extends Controller
         'homefacts' => [
             "Home Facts",
             [
-                ['icon1', 1], ['num1', 1], ['title1', 1],
-                ['icon2', 1], ['num2', 1], ['title2', 1],
-                ['icon3', 1], ['num3', 1], ['title3', 1],
-                ['icon4', 1], ['num4', 1], ['title4', 1],
-                ['icon5', 1], ['num5', 1], ['title5', 1],
-                ['icon6', 1], ['num6', 1], ['title6', 1],
+                ['icon1', 0], ['num1', 1], ['title1', 1],
+                ['icon2', 0], ['num2', 1], ['title2', 1],
+                ['icon3', 0], ['num3', 1], ['title3', 1],
+                ['icon4', 0], ['num4', 1], ['title4', 1],
+                ['icon5', 0], ['num5', 1], ['title5', 1],
+                ['icon6', 0], ['num6', 1], ['title6', 1],
 
             ],
             "views/front/pages/home/facts.blade.php"
