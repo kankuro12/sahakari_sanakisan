@@ -194,7 +194,7 @@ h6,
         position: relative;
         min-height: 450px;
     }
-    
+
     #header-carousel .carousel-item img {
         position: absolute;
         width: 100%;
@@ -224,7 +224,11 @@ h6,
 .facts {
     background: linear-gradient(rgba(53, 94, 252, .95), rgba(53, 94, 252, .95)), url(../img/bg.png);
 }
-
+.facts .container .row .single{
+    padding: 50px;
+    border: 1px solid white;
+    border-radius: 10px;
+}
 
 /*** Callback ***/
 .callback {

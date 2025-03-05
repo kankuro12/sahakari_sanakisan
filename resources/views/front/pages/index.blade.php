@@ -6,15 +6,6 @@
     @includeIf('front.pages.home.slider')
 
     <style>
-        .top-section {
-            /* box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.1); */
-        }
-
-        .notice-wapper {
-            /* height:500px; */
-            /* height: 100%; */
-        }
-
         .notice-links {
             font-weight: 500;
         }

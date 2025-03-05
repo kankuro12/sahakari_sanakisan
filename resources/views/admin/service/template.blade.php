@@ -3,7 +3,7 @@
     <div class="container">
         <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
             <p class="d-inline-block border rounded text-primary fw-semi-bold py-1 px-3">हाम्रा सेवाहरू</p>
-            <h1 class="display-5 mb-5">व्यवसायका लागि उत्कृष्ट वित्तीय सेवाहरू</h1>
+            <h1 class="display-5 mb-5">उत्कृष्ट वित्तीय सेवाहरू</h1>
         </div>
         <div class="row g-4 wow fadeInUp" data-wow-delay="0.3s">
             <div class="col-lg-4">

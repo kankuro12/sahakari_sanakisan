@@ -68,6 +68,8 @@ class SettingController extends Controller
                 ['icon2', 1], ['num2', 1], ['title2', 1],
                 ['icon3', 1], ['num3', 1], ['title3', 1],
                 ['icon4', 1], ['num4', 1], ['title4', 1],
+                ['icon5', 1], ['num5', 1], ['title5', 1],
+                ['icon6', 1], ['num6', 1], ['title6', 1],
 
             ],
             "views/front/pages/home/facts.blade.php"
