@@ -11,15 +11,6 @@
 @endsection
 @section('pagecss')
     <style>
-        .top-section {
-            /* box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.1); */
-        }
-
-        .notice-wapper {
-            /* height:500px; */
-            /* height: 100%; */
-        }
-
         .notice-links {
             font-weight: 500;
         }
@@ -77,7 +68,7 @@
                             {{-- <a class="notice-links" href="ds">Download  Fils<i class="bi bi-cloud-arrow-down ms-2"></i></a> --}}
                         </span>
                         <span class="col-md-6 text-end">
-                            <a class="notice-links" href="{{ route('page', ['id' => $notice->id]) }}">View Detail <i
+                            <a class="notice-links" href="{{ route('page', ['id' => $notice->id]) }}">विवरण हेर्नुहोस् <i
                                     class="bi bi-arrow-right-circle-fill ms-2"></i></a>
                         </span>
                     </div>

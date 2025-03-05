@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>{{ env('APP_NAME', '') }} @yield('title')</title>
+    <title>Aathmauja @yield('title')</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
     @yield('meta')
@@ -74,26 +74,21 @@
 
     @include('front.layout.footer')
 
-    <!-- Copyright Start -->
+
     <div class="container-fluid copyright py-4">
         <div class="container">
             <div class="row">
                 <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                    &copy; <a class="border-bottom">{{ config('app.name') }}</a>, All Right Reserved.
+                    &copy; <a class="border-bottom">Aathmauja</a>, All Right Reserved.
                 </div>
 
             </div>
         </div>
     </div>
-    <!-- Copyright End -->
-
-
-    <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i
             class="bi bi-arrow-up"></i></a>
 
 
-    <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="{{ asset('front/lib/wow/wow.min.js') }}"></script>
