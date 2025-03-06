@@ -1,7 +1,8 @@
 @extends('front.pages.app')
 @section('b-items')
     <li class="breadcrumb-item active" aria-current="page">
-        About Us
+
+        हाम्रो बारेमा
     </li>
 @endsection
 @section('meta')
@@ -26,17 +27,17 @@
             box-shadow: 0px 0px 5px 0px rgba(63, 93, 246, 0.2);
         }
 
-        .about-holder{
+        .about-holder {
             display: block;
-            color:black;
+            color: black;
         }
     </style>
 @endsection
 @section('title')
-    - About Us
+    - हाम्रो बारेमा
 @endsection
 @section('b-title')
-    About Us
+    हाम्रो बारेमा
 @endsection
 @section('pagecontent')
     <div class="container">

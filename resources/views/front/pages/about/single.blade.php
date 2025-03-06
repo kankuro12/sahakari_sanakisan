@@ -2,7 +2,8 @@
 @section('b-items')
     <li class="breadcrumb-item " aria-current="page">
         <a href="{{ route('page.type', ['type' => 'about']) }}">
-            About Us
+
+हाम्रो बारेमा
         </a>
 
     </li>
@@ -26,10 +27,10 @@
     </style>
 @endsection
 @section('title')
-    - About Us - {{ $about->title }}
+    - हाम्रो बारेमा - {{ $about->title }}
 @endsection
 @section('b-title')
-    About Us - {{ $about->title }}
+    हाम्रो बारेमा - {{ $about->title }}
 @endsection
 @section('pagecontent')
     <div class="container">

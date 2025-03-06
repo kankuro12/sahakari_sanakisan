@@ -5,7 +5,7 @@
     @endphp
     <li class="breadcrumb-item active" aria-current="page">
         <a href="{{ route('service.types') }}">
-            Services
+            सेवाहरू
         </a>
     </li>
     <li class="breadcrumb-item active" aria-current="page">{{ $service->name }}</li>
@@ -54,10 +54,10 @@
     </style>
 @endsection
 @section('b-title')
-    Services - {{ $service->name }}
+सेवाहरू - {{ $service->name }}
 @endsection
 @section('title')
-    Services - {{ $service->name }}
+सेवाहरू - {{ $service->name }}
 @endsection
 @section('pagecontent')
     <div>

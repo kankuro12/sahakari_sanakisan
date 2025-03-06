@@ -4,7 +4,7 @@
 
     @endphp
     <li class="breadcrumb-item active" aria-current="page">
-        Gallery
+        ग्यालरीहरू
     </li>
 @endsection
 @section('meta')
@@ -41,10 +41,10 @@
     </style>
 @endsection
 @section('title')
-    - Gallery
+    - ग्यालेरी
 @endsection
 @section('b-title')
-    Gallery
+ग्यालेरी
 @endsection
 @section('pagecontent')
     <div class="container">

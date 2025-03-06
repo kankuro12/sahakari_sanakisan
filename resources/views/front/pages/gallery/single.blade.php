@@ -5,7 +5,7 @@
     @endphp
     <li class="breadcrumb-item " aria-current="page">
         <a href="{{ route('gallery.type') }}">
-            Galleries
+            ग्यालरीहरू
         </a>
     </li>
     <li class="breadcrumb-item active" aria-current="page">
@@ -51,10 +51,10 @@
     </style>
 @endsection
 @section('title')
-    - Gallery - {{ $type->name }}
+    - ग्यालेरी - {{ $type->name }}
 @endsection
 @section('b-title')
-    Gallery - {{ $type->name }}
+ग्यालेरी - {{ $type->name }}
 @endsection
 @section('pagecontent')
     <div class="container">

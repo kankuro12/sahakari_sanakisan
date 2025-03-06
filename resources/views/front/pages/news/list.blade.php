@@ -4,7 +4,7 @@
 
     @endphp
     <li class="breadcrumb-item active" aria-current="page">
-        News
+        समाचार
     </li>
 @endsection
 @section('meta')
@@ -26,10 +26,10 @@
 </style>
 @endsection
 @section('title')
-    - News
+    - समाचार
 @endsection
 @section('b-title')
-    News
+      समाचार
 @endsection
 @section('pagecontent')
     <div class="container">

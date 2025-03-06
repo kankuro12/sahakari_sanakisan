@@ -4,7 +4,7 @@
 
     @endphp
     <li class="breadcrumb-item active" aria-current="page">
-        Notices
+        सूचनाहरू
     </li>
 @endsection
 @section('meta')
@@ -42,10 +42,10 @@
     </style>
 @endsection
 @section('title')
-    - Notices
+    - सूचनाहरू
 @endsection
 @section('b-title')
-    Notices
+सूचनाहरू
 @endsection
 @section('pagecontent')
     <div class="container">
