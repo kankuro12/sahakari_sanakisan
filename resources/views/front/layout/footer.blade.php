@@ -12,7 +12,7 @@
                  @includeIf('front.includes.footerser')
              </div>
              <div class="col-lg-3 col-md-6">
-                 <h4 class="text-white mb-4">Quick Links</h4>
+                 <h4 class="text-white mb-4">लिङ्कहरू</h4>
                  <a class="btn btn-link" href="{{ route('team.type') }}">समिति</a>
                  <a class="btn btn-link" href="{{ route('service.types') }}">हाम्रा सेवाहरू</a>
                  <a class="btn btn-link" href="{{ route('page.type', ['type' => 'about']) }}"> हाम्रो बारेमा</a>

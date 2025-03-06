@@ -40,7 +40,7 @@
 @endif
 
 <h1 class="{{ $data != null ? 'mt-5 mb-5' : '' }} text-center text-md-start">
-    Know More About Us
+    हाम्रो बारेमा थप जान्नुहोस्
 </h1>
 <div class="row">
     @foreach ($abouts as $about)

@@ -18,7 +18,7 @@
 
         <h3 class="p-3">
             <div class="text-center text-md-start ">
-                Latest News
+                नयाँ समाचार
             </div>
         </h3>
         <div>
@@ -44,7 +44,7 @@
 
         <div class="text-center mb-4">
             <a href="{{route('page.type',['type'=>'news'])}}" class="btn btn-primary">
-                View All News
+                सबै समाचार हेर्नुहोस्
             </a>
         </div>
     </div>
