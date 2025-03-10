@@ -67,6 +67,7 @@
     <div class="container-fluid fixed-top px-0 wow fadeIn" data-wow-delay="0.1s">
         @includeIf('front.includes.top')
         @includeIf('front.layout.menu')
+        @includeIf('front.layout.notice')
     </div>
 
     @yield('content')

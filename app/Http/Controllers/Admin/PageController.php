@@ -130,13 +130,11 @@ class PageController extends Controller
 
     public function render($type)
     {
-
-
         switch ($type) {
             case 'not':
                 $notices=DB::table('pages')->where('type',$type)->orderBy('created_at','desc')->take(4)->get();
                 file_put_contents( resource_path('views/front/pages/home/notice.blade.php'),view('admin.page.template.notice',compact('notices'))->render());
-
+                file_put_contents( resource_path('views/front/layout/notice.blade.php'),view('admin.page.template.frontnotice',compact('notices'))->render());
                 break;
             case 'about':
                 $mainMsg = getSetting('main_msg') ?? -1;

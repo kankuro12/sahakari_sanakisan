@@ -19,24 +19,4 @@
         </li>
 
     </ul>
-    {{-- <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a href="" class="nav-link">Services</a>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">Bookings</a>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">Reports</a>
-            </li>
-        </ul>
-    </div> --}}
-    {{-- <div class="navbar-search">
-        <form>
-            <div class="form-group">
-                <input type="text" name="search" id="nav-search" placeholder="Search...">
-            </div>
-        </form>
-    </div> --}}
 </nav>

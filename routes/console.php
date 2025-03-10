@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Artisan;
 Artisan::command('make:admin', function () {
     $name = $this->ask('What is the admin name?');
     $email = $this->ask('What is the admin email?');
-    $password = $this->secret('What is the admin password?');
+    $password = $this->ask('What is the admin password?');
 
     $user = new User();
     $user->name = $name;

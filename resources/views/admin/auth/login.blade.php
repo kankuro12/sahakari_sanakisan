@@ -5,11 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Title -->
     <title>{{env('APP_NAME')}} Admin Login</title>
-
-    <!-- Styles -->
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap" rel="stylesheet">
     <link
@@ -17,19 +13,9 @@
         rel="stylesheet">
     <link href="{{ asset('admin/plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('admin/plugins/font-awesome/css/all.min.css') }}" rel="stylesheet">
-
-
-    <!-- Theme Styles -->
     <link href="{{ asset('admin/css/connect.min.css') }}" rel="stylesheet">
     <link href="{{ asset('admin/css/dark_theme.css') }}" rel="stylesheet">
     <link href="{{ asset('admin/css/custom.css') }}" rel="stylesheet">
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-        <![endif]-->
 </head>
 
 <body class="auth-page sign-in">
@@ -63,8 +49,16 @@
                                         <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+                                        <div class="input-group">
+                                            <input type="password" class="form-control" style="border-right: none" name="password" id="password" placeholder="Password">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text" style="background-color: #E8F0FE" onclick="togglePasswordVisibility()">
+                                                    <i class="fa fa-eye" id="togglePasswordIcon"></i>
+                                                </span>
+                                            </div>
+                                        </div>
                                     </div>
+
                                     <button type="submit" class="btn btn-primary btn-block btn-submit">Sign In</button>
                                     <div class="auth-options">
                                         <div class="custom-control custom-checkbox form-group">
@@ -92,6 +86,21 @@
     <script src="{{ asset('admin/plugins/blockui/jquery.blockUI.js') }}"></script>
     <script src="{{ asset('admin/js/connect.min.js') }}"></script>
     @include('toastr.index')
+    <script>
+        function togglePasswordVisibility() {
+            var passwordField = document.getElementById('password');
+            var toggleIcon = document.getElementById('togglePasswordIcon');
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                toggleIcon.classList.remove('fa-eye');
+                toggleIcon.classList.add('fa-eye-slash');
+            } else {
+                passwordField.type = 'password';
+                toggleIcon.classList.remove('fa-eye-slash');
+                toggleIcon.classList.add('fa-eye');
+            }
+        }
+    </script>
 </body>
 
 </html>
