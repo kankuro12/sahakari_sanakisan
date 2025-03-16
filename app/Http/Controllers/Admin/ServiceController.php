@@ -20,7 +20,6 @@ class ServiceController extends Controller
     public function addType(Request $request)
     {
         if($request->getMethod()=="POST"){
-
             $type = new ServiceType();
             $type->name = $request->name;
             $type->desc = $request->desc;
@@ -108,7 +107,6 @@ class ServiceController extends Controller
             $service->short_desc = $request->short_desc??"";
             $service->save();
             $this->render();
-
             return response()->json(['status' => true]);
         } else {
             return view('admin.service.edit', compact('service'));

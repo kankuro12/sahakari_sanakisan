@@ -78,9 +78,6 @@
                                 <input type="text" name="home_desc" id="home_desc" class="form-control" required>
                             </div>
                         </div>
-
-
-
                         <div class="col-md-2">
                                 <button class="btn btn-primary">Save Data</button>
                         </div>

@@ -14,9 +14,7 @@
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&family=Open+Sans:wght@400;500&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&family=Open+Sans:wght@400;500&display=swap" rel="stylesheet">
 
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -35,18 +33,14 @@
     <style>
         .single-line {
             white-space: nowrap;
-            /* Prevents text from wrapping */
             overflow: hidden;
-            /* Hides any overflowing text */
             text-overflow: ellipsis;
-            /* Adds an ellipsis to the end of the text */
         }
 
         .two-line {
             overflow: hidden;
             display: -webkit-box;
             -webkit-line-clamp: 2;
-            /* number of lines to show */
             line-clamp: 2;
             -webkit-box-orient: vertical;
         }
@@ -57,7 +51,7 @@
 
         @media (max-width: 768px) {
             .logo-container {
-                padding: 0;
+                padding: 34px;
             }
         }
     </style>
@@ -66,48 +60,37 @@
 </head>
 
 <body>
-    <!-- Spinner Start -->
     <div id="spinner"
         class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;"></div>
     </div>
-    <!-- Spinner End -->
-
     @php
         $logo = getsetting('top_logo', 'true');
     @endphp
     @includeIf('front.includes.top')
     <div class="logo-container py-2 bg-white">
-        <div class="logo">
-            <img src="{{ asset($logo) }}" alt="" class="img-fluid"
-                style="min-height: 100px; max-height: 140px;">
-        </div>
+        <a href="{{route('home')}}">
+            <div class="logo">
+                <img src="{{ asset($logo) }}" class="img-fluid">
+            </div>
+        </a>
     </div>
     <div class="sticky-top">
         @includeIf('front.layout.menu')
     </div>
     @includeIf('front.layout.notice')
-
     @yield('content')
-
-
     @include('front.layout.footer')
-
-
     <div class="container-fluid copyright py-4">
         <div class="container">
             <div class="row">
                 <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
                     &copy; <a class="border-bottom">Aathmauja</a>, All Right Reserved.
                 </div>
-
             </div>
         </div>
     </div>
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i
-            class="bi bi-arrow-up"></i></a>
-
-
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="{{ asset('front/lib/wow/wow.min.js') }}"></script>
@@ -115,19 +98,14 @@
     <script src="{{ asset('front/lib/waypoints/waypoints.min.js') }}"></script>
     <script src="{{ asset('front/lib/owlcarousel/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('front/lib/counterup/counterup.min.js') }}"></script>
-
-    <!-- Template Javascript -->
     <script src="{{ asset('front/js/main.js') }}"></script>
     <script>
-        $(document).ready(fuction() {
-            var threshold = 50; // scroll threshold in pixels
-
+        $(document).ready(function() {
+            var threshold = 50;
             $(window).on('scroll', function() {
                 if ($(window).scrollTop() > threshold) {
-                    // Hide the logo container
                     $('.logo-container').slideUp(300);
                 } else {
-                    // Show the logo container
                     $('.logo-container').slideDown(300);
                 }
             });
@@ -136,5 +114,4 @@
 
     @yield('js')
 </body>
-
 </html>

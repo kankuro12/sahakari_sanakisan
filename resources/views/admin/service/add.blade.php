@@ -64,10 +64,6 @@
                                 class="btn btn-danger">Cancel</a>
                         </div>
                     </div>
-
-
-
-
                 </div>
             </form>
         </div>
@@ -85,9 +81,11 @@
                 e.preventDefault();
                 axios.post(this.action, new FormData(this))
                     .then((res) => {
-                        toastr.success('Service Saved Sucessfully');
-                        this.reset();
-                        $(".dropify-clear").trigger('click');
+                        if (res.data.status == true) {
+                            toastr.success('Service Saved Sucessfully');
+                            this.reset();
+                            $(".dropify-clear").trigger('click');
+                        }
                     })
                     .catch((err) => {
                         toastr.error('Service Not Saved, Some Error Occured');

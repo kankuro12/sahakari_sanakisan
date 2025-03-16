@@ -90,8 +90,11 @@
                 e.preventDefault();
                 axios.post(this.action, new FormData(this))
                     .then((res) => {
-                        toastr.success('Service Saved Sucessfully');
+                        if(res.data.status == true){
+                            console.log('true');
 
+                            toastr.success('Service Saved Successfully');
+                        }
                     })
                     .catch((err) => {
                         toastr.error('Service Not Saved, Some Error Occured');

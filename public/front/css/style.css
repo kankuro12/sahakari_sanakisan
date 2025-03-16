@@ -5,6 +5,7 @@
     --tertiary: #555555;
     --light: #dfe4fd;
     --dark: #011a41;
+    --success : #198754;
 }
 
 .back-to-top {
@@ -338,8 +339,8 @@ h6,
 }
 
 .service .nav .nav-link.active {
-    border-color: var(--primary) !important;
-    background: var(--primary);
+    border-color: var(--success) !important;
+    background: var(--success);
 }
 
 .service .nav .nav-link.active h5 {

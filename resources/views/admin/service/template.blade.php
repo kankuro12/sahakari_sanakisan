@@ -12,7 +12,7 @@
 
                         <button class="nav-link w-100 d-flex align-items-center text-start border p-4 mb-4 {{$key==0?"active":""}}"
                             data-bs-toggle="pill" data-bs-target="#tab-pane-{{$serviceType->id}}" type="button" >
-                            <h5 class="m-0"><i class="fa fa-bars text-success me-3"></i>{{$serviceType->name}}</h5>
+                            <h5 class="m-0 text-success"><i class="fa fa-bars text-success me-3"></i>{{$serviceType->name}}</h5>
                         </button>
                     @endforeach
 
@@ -38,7 +38,7 @@
                                     @foreach ($services->where('service_type_id',$serviceType->id) as $service)
                                         <p>
                                             <i class="fa fa-check text-success me-3"></i>
-                                            <a href="{{route('service.single',['service'=>$service->id])}}">{{$service->name}}</a>
+                                            <a class="text-success" href="{{route('service.single',['service'=>$service->id])}}">{{$service->name}}</a>
                                         </p>
 
                                     @endforeach
