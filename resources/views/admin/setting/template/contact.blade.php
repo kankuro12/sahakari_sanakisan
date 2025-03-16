@@ -42,7 +42,7 @@
                             </div>
                         </div>
                         <div class="col-12">
-                            <button class="btn btn-primary py-3 px-5" type="submit">
+                            <button class="btn btn-success py-3 px-5" type="submit">
                                 सन्देश पठाउनुहोस्</button>
                         </div>
                     </div>
@@ -51,7 +51,7 @@
             <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
                 <h2 class="mb-4">सम्पर्क विवरण</h2>
                 <div class="d-flex border-bottom pb-3 mb-3">
-                    <div class="flex-shrink-0 btn-square bg-primary text-white rounded-circle">
+                    <div class="flex-shrink-0 btn-square bg-success text-white rounded-circle">
                         <i class="fa text-white fa-map-marker-alt "></i>
                     </div>
                     <div class="ms-3">
@@ -60,7 +60,7 @@
                     </div>
                 </div>
                 <div class="d-flex border-bottom pb-3 mb-3">
-                    <div class="flex-shrink-0 btn-square bg-primary text-white rounded-circle">
+                    <div class="flex-shrink-0 btn-square bg-success text-white rounded-circle">
                         <i class="fa text-white fa-phone-alt "></i>
                     </div>
                     <div class="ms-3">
@@ -69,7 +69,7 @@
                     </div>
                 </div>
                 <div class="d-flex pb-3 mb-3">
-                    <div class="flex-shrink-0 btn-square bg-primary text-white rounded-circle">
+                    <div class="flex-shrink-0 btn-square bg-success text-white rounded-circle">
                         <i class="fa text-white fa-envelope  "></i>
                     </div>
                     <div class="ms-3">

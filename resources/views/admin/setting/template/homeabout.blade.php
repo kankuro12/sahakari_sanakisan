@@ -6,7 +6,7 @@
                 <img class="img-fluid rounded" src="{{ asset($curdata['img']) }}">
             </div>
             <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
-                <p class="d-inline-block border rounded text-primary fw-semi-bold py-1 px-3">
+                <p class="d-inline-block border rounded text-success fw-semi-bold py-1 px-3">
                     हाम्रो बारेमा</p>
                 <h1 class="display-5 mb-4">{{ $curdata['title'] }}</h1>
                 <p class="mb-4">{{ $curdata['desc'] }}</p>

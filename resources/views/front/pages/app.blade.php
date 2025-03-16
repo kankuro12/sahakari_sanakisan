@@ -1,11 +1,15 @@
 @extends('front.layout.app')
 @section('css')
     @yield('pagecss')
+    <style>
+        .breadcrumb-item a{
+            color: green;
+        }
+    </style>
 @endsection
 @section('content')
     <!-- Page Header Start -->
-    <div class="container-fluid page-header wow fadeIn" data-wow-delay="0.1s"
-        style="background-image: url('{{ asset('uploads/header.jpg') }}') !important">
+    <div class="container-fluid page-header wow fadeIn" data-wow-delay="0.1s" >
         <div class="container">
             <h1 class="display-3 mb-4 animated slideInDown single-line">@yield('b-title')</h1>
             <nav aria-label="breadcrumb animated slideInDown">

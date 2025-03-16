@@ -1,50 +1,50 @@
 <style>
-    .notice-wrapper[_ngcontent-cww-c94] .notice-container[_ngcontent-cww-c94] {
+    .notice-wrapper .notice-container {
         position: relative;
         margin: 0px;
     }
 
-    .notice-section[_ngcontent-cww-c94] {
+    .notice-section {
         display: flex;
         align-items: center;
         font-size: 1rem;
         background-color: #e3fded;
     }
 
-    .notice-section[_ngcontent-cww-c94] .notice-header[_ngcontent-cww-c94] {
+    .notice-section .notice-header {
         background-color: #077430;
         color: #fff;
         font-weight: 900;
         padding: 8px 0px 8px 95px;
-        clip-path: polygon(0 -3%, 100% 0, 75% 100%, 0 100%);
+        clip-path: polygon(0 -3%, 96% 0, 85% 100%, 0 100%);
         width: 200px;
     }
 
     @media (max-width: 768px) {
-        .notice-section[_ngcontent-cww-c94] {
+        .notice-section {
             flex-direction: column;
             align-items: flex-start;
         }
 
-        .notice-section[_ngcontent-cww-c94] .notice-header[_ngcontent-cww-c94] {
+        .notice-section .notice-header {
             width: 100%;
             padding: 8px;
             clip-path: none;
             text-align: center;
         }
 
-        marquee[_ngcontent-cww-c94] {
+        marquee {
             width: 100%;
         }
     }
 </style>
 
-<div _ngcontent-cww-c94="" class="notice-container" style="margin: 0px; padding: 0px">
-    <div _ngcontent-cww-c94="" class="notice-section">
-        <div _ngcontent-cww-c94="" class="notice-header">Notice</div>
-        <marquee _ngcontent-cww-c94="" behavior="scroll" direction="left" scrolldelay="150">
-            <span _ngcontent-cww-c94="" class="scroll ng-star-inserted">
-                <a _ngcontent-cww-c94="" style="text-decoration: none; color: rgb(44, 41, 41)">
+<div class="notice-container" style="margin: 0px; padding: 0px">
+    <div class="notice-section" id="notice-section">
+        <div class="notice-header">Notice</div>
+        <marquee behavior="scroll" direction="left" scrolldelay="150">
+            <span class="scroll ng-star-inserted">
+                <a style="text-decoration: none; color: rgb(44, 41, 41)">
                     @foreach ($notices as $notice)
                         {{ $notice->title }}
                     @endforeach
@@ -53,3 +53,14 @@
         </marquee>
     </div>
 </div>
+
+<script>
+    window.addEventListener('scroll', function() {
+        var noticeSection = document.getElementById('notice-section');
+        if (window.scrollY > 50) {
+            noticeSection.style.display = 'none';
+        } else {
+            noticeSection.style.display = 'flex';
+        }
+    });
+</script>

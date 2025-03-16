@@ -87,7 +87,7 @@
                                             <div class="ps-2 mb-1 d-inline-block">
                                                 {{ $upload->title }} asdfasdfsd asdfasdf asdfasdf asdfasdf
                                             </div>
-                                            <button class="btn btn-primary" style="border-radius: 30px;">
+                                            <button class="btn btn-success" style="border-radius: 30px;">
                                                 Download / View
                                                 <i class="bi ms-2 bi-cloud-arrow-down-fill"></i>
 

@@ -23,7 +23,7 @@
                         </small>
                     </span>
                     <span class="col-md-6 text-end">
-                        <a class="notice-links" href="{{ route('page', ['id' => $notice->id]) }}">विवरण हेर्नुहोस् <i
+                        <a class="notice-links" class="text-success" href="{{ route('page', ['id' => $notice->id]) }}">विवरण हेर्नुहोस् <i
                                 class="bi bi-arrow-right-circle-fill ms-2"></i></a>
                     </span>
                 </div>
@@ -31,6 +31,6 @@
         @endforeach
     </div>
     <div class="py-3 text-center">
-        <a href="{{ route('page.type', ['type' => 'not']) }}" class="btn btn-primary">सबै सूचना हेर्नुहोस्</a>
+        <a href="{{ route('page.type', ['type' => 'not']) }}" class="btn btn-success">सबै सूचना हेर्नुहोस्</a>
     </div>
 </div>

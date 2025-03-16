@@ -202,10 +202,6 @@ Route::prefix('admin')->name('admin.')->group(function () {
             Route::match(['get', 'post'], 'manage', [AssessmentController::class, 'manage'])->name('manage');
         });
 
-
-
-
-
         Route::prefix('setting')->name('setting.')->group(function () {
             Route::match(['GET', 'POST'], 'caste', [SettingController::class, 'caste'])->name('caste');
             Route::match(['GET', 'POST'], 'category', [SettingController::class, 'category'])->name('category');

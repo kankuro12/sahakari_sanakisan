@@ -36,12 +36,9 @@
 
         <div class="card-body">
 
-            <form action="{{ route('admin.setting.index', ['type' => $type]) }}" method="post" enctype="multipart/form-data"
-                id="add-employee">
-
+            <form action="{{ route('admin.setting.index', ['type' => $type]) }}" method="post" enctype="multipart/form-data" id="add-employee">
                 @csrf
                 <div class="row">
-
                     @foreach ($data[1] as $item)
                         @php
                             $key=$type.'_'.$item[0];

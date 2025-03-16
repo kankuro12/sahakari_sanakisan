@@ -2,7 +2,7 @@
 <div class="container-xxl service py-5">
     <div class="container">
         <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-            <p class="d-inline-block border rounded text-primary fw-semi-bold py-1 px-3">हाम्रा सेवाहरू</p>
+            <p class="d-inline-block border rounded text-success fw-semi-bold py-1 px-3">हाम्रा सेवाहरू</p>
             <h1 class="display-5 mb-5">उत्कृष्ट वित्तीय सेवाहरू</h1>
         </div>
         <div class="row g-4 wow fadeInUp" data-wow-delay="0.3s">
@@ -12,7 +12,7 @@
 
                         <button class="nav-link w-100 d-flex align-items-center text-start border p-4 mb-4 {{$key==0?"active":""}}"
                             data-bs-toggle="pill" data-bs-target="#tab-pane-{{$serviceType->id}}" type="button" >
-                            <h5 class="m-0"><i class="fa fa-bars text-primary me-3"></i>{{$serviceType->name}}</h5>
+                            <h5 class="m-0"><i class="fa fa-bars text-success me-3"></i>{{$serviceType->name}}</h5>
                         </button>
                     @endforeach
 
@@ -37,14 +37,14 @@
 
                                     @foreach ($services->where('service_type_id',$serviceType->id) as $service)
                                         <p>
-                                            <i class="fa fa-check text-primary me-3"></i>
+                                            <i class="fa fa-check text-success me-3"></i>
                                             <a href="{{route('service.single',['service'=>$service->id])}}">{{$service->name}}</a>
                                         </p>
 
                                     @endforeach
 
 
-                                    <a href="{{route('service.types')}}" class="btn btn-primary py-3 px-5 mt-3">थप पढ्नुहोस्</a>
+                                    <a href="{{route('service.types')}}" class="btn btn-success py-3 px-5 mt-3">थप पढ्नुहोस्</a>
                                 </div>
                             </div>
                         </div>

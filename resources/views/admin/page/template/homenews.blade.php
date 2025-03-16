@@ -43,7 +43,7 @@
         </div>
 
         <div class="text-center mb-4">
-            <a href="{{route('page.type',['type'=>'news'])}}" class="btn btn-primary">
+            <a href="{{route('page.type',['type'=>'news'])}}" class="btn btn-success">
                 सबै समाचार हेर्नुहोस्
             </a>
         </div>

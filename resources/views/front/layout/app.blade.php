@@ -50,6 +50,16 @@
             line-clamp: 2;
             -webkit-box-orient: vertical;
         }
+
+        .logo-container {
+            padding: 0px 0px 0px 75px;
+        }
+
+        @media (max-width: 768px) {
+            .logo-container {
+                padding: 0;
+            }
+        }
     </style>
     @yield('css')
 
@@ -63,14 +73,20 @@
     </div>
     <!-- Spinner End -->
 
-
-    <div class="container-fluid fixed-top px-0 wow fadeIn" data-wow-delay="0.1s">
-        @includeIf('front.includes.top')
-        <div class="sticky-top">
-            @includeIf('front.layout.menu')
+    @php
+        $logo = getsetting('top_logo', 'true');
+    @endphp
+    @includeIf('front.includes.top')
+    <div class="logo-container py-2 bg-white">
+        <div class="logo">
+            <img src="{{ asset($logo) }}" alt="" class="img-fluid"
+                style="min-height: 100px; max-height: 140px;">
         </div>
-        @includeIf('front.layout.notice')
     </div>
+    <div class="sticky-top">
+        @includeIf('front.layout.menu')
+    </div>
+    @includeIf('front.layout.notice')
 
     @yield('content')
 
@@ -102,6 +118,21 @@
 
     <!-- Template Javascript -->
     <script src="{{ asset('front/js/main.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+            var threshold = 100; // scroll threshold in pixels
+
+            $(window).on('scroll', function() {
+                if ($(window).scrollTop() > threshold) {
+                    // Hide the logo container
+                    $('.logo-container').slideUp(300);
+                } else {
+                    // Show the logo container
+                    $('.logo-container').slideDown(300);
+                }
+            });
+        });
+    </script>
 
     @yield('js')
 </body>
