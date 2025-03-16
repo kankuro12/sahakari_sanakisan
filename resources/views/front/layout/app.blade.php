@@ -119,8 +119,8 @@
     <!-- Template Javascript -->
     <script src="{{ asset('front/js/main.js') }}"></script>
     <script>
-        $(document).ready(function() {
-            var threshold = 100; // scroll threshold in pixels
+        $(document).ready(fuction() {
+            var threshold = 50; // scroll threshold in pixels
 
             $(window).on('scroll', function() {
                 if ($(window).scrollTop() > threshold) {
