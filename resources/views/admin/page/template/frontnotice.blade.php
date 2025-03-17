@@ -16,7 +16,7 @@
         color: #fff;
         font-weight: 900;
         padding: 8px 0px 8px 95px;
-        clip-path: polygon(0 -3%, 96% 0, 85% 100%, 0 100%);
+        clip-path: polygon(0 -40%, 96% 0, 85% 100%, 0 100%);
         width: 200px;
     }
 

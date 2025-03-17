@@ -45,7 +45,7 @@
         }
 
         .logo-container {
-            padding: 0px 0px 0px 75px;
+            padding: 0px 0px 0px 95px;
         }
 
         @media (max-width: 768px) {
