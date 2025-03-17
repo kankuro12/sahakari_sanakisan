@@ -33,7 +33,6 @@
     <style>
         .single-line {
             white-space: nowrap;
-            overflow: hidden;
             text-overflow: ellipsis;
         }
 
@@ -101,7 +100,7 @@
     <script src="{{ asset('front/js/main.js') }}"></script>
     <script>
         $(document).ready(function() {
-            var threshold = 50;
+            var threshold = 20;
             $(window).on('scroll', function() {
                 if ($(window).scrollTop() > threshold) {
                     $('.logo-container').slideUp(300);

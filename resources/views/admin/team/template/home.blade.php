@@ -1,5 +1,5 @@
 <div class="top-section">
-    <h3 class="py-3">Board Members</h3>
+    <h3 class="py-3">सञ्चालक समिति</h3>
     <div class="notice-wapper">
         <div class="row">
 
