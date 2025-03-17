@@ -219,10 +219,7 @@ h6,
 
 /*** Facts ***/
 .fact-container {
-    background-image: linear-gradient(
-        rgba(53, 94, 252, 0.95),
-        rgba(53, 94, 252, 0.95)
-    );
+    background-color: #077430;
     padding: 60px 0;
     background-position: 50%;
     background-repeat: no-repeat;
@@ -231,8 +228,14 @@ h6,
     position: relative;
 }
 .fact-container[_ngcontent-vjb-c94] .profile-card[_ngcontent-vjb-c94]:hover {
-    background-color: rgba(53, 94, 252, 0.3);
+    background-color:#198754;
     border: 1px white solid;
+    h6{
+        color: white;
+    }
+    h5{
+        color: white;
+    }
 }
 .fact-container[_ngcontent-vjb-c94]
     .profile-card[_ngcontent-vjb-c94]:hover
@@ -245,13 +248,14 @@ h6,
     color: #fff;
     margin-bottom: 25px;
 }
-.fact-container[_ngcontent-vjb-c94]
+.fact-container .profile-card .profile-content
+/* .fact-container[_ngcontent-vjb-c94]
     .profile-card[_ngcontent-vjb-c94]
     .icon[_ngcontent-vjb-c94]
     img[_ngcontent-vjb-c94] {
-    filter: brightness(0) invert(0.25) sepia(1) saturate(4000%)
+       filter: brightness(0) invert(0.25) sepia(1) saturate(4000%)
         hue-rotate(210deg);
-}
+} */
 .fact-container .container .header {
     font-size: 2.074rem;
     margin-bottom: 20px;
@@ -271,12 +275,12 @@ h6,
     display: block;
     position: relative;
 }
-.fact-container[_ngcontent-vjb-c94]
+/* .fact-container[_ngcontent-vjb-c94]
     .profile-card[_ngcontent-vjb-c94]
     .icon[_ngcontent-vjb-c94] {
-    color: #3f66fc;
+    color: #198754;
     margin-bottom: 16px;
-}
+} */
 .profile-card[_ngcontent-vjb-c94] .icon[_ngcontent-vjb-c94] {
     color: #504d4d;
 }

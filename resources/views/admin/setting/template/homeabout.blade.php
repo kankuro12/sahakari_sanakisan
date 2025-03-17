@@ -1,4 +1,9 @@
 <!-- About Start -->
+<style>
+    .nav-link{
+        color: #198754;
+    }
+</style>
 <div class="container-xxl py-5">
     <div class="container">
         <div class="row g-4 align-items-center mb-4">
@@ -43,3 +48,4 @@
     </div>
 </div>
 <!-- About End -->
+

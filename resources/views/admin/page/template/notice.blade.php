@@ -23,7 +23,7 @@
                         </small>
                     </span>
                     <span class="col-md-6 text-end">
-                        <a class="notice-links" class="text-success" href="{{ route('page', ['id' => $notice->id]) }}">विवरण हेर्नुहोस् <i
+                        <a class="notice-links text-success" href="{{ route('page', ['id' => $notice->id]) }}">विवरण हेर्नुहोस् <i
                                 class="bi bi-arrow-right-circle-fill ms-2"></i></a>
                     </span>
                 </div>
