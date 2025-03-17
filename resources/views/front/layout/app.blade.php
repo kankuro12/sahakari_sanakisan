@@ -108,6 +108,18 @@
                     $('.logo-container').slideDown(300);
                 }
             });
+
+            // For mobile view
+            if ($(window).width() <= 768) {
+                var threshold = 50;
+                $(window).on('scroll', function() {
+                    if ($(window).scrollTop() > threshold) {
+                        $('.logo-container').slideUp(100);
+                    } else {
+                        $('.logo-container').slideDown(100);
+                    }
+                });
+            }
         });
     </script>
 
