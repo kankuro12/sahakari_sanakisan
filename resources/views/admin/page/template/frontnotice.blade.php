@@ -26,7 +26,7 @@
     }
 </style>
 
-<div class="notice-container" style="margin: 0px; padding: 0px">
+<div class="notice-container" style="margin: 0px; padding: 0px; border-top:solid 2px white;">
     <div class="notice-section" id="notice-section">
         <div class="notice-header">सूचना</div>
         <marquee behavior="scroll" direction="left" scrolldelay="150">
