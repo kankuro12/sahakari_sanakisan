@@ -38,7 +38,8 @@
                         <div class="form-group">
                             <label for="pdf">Pdf</label>
                             <input type="file" name="pdf" id="pdf" class="form-control photo"
-                                accept="application/pdf " required>
+                                accept=".pdf,.doc,.docx" required>
+
                         </div>
                     </div>
                     <div class="col-md-8">

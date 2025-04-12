@@ -15,7 +15,6 @@ class DownloadController extends Controller
     public function indexType()
     {
         $types=DownloadType::where('parent_id',0)->with('childs')->get(['id','name']);
-        // dd($types);
         return view('admin.download.type',compact('types'));
     }
 
@@ -44,7 +43,7 @@ class DownloadController extends Controller
                 DownloadType::where('parent_id',$type->id)->update(['parent_id'=>0]);
             }
             $type->delete();
-           
+
             return redirect()->back()->with('message','Download Type Deleted Sucessfully');
         }
     }
