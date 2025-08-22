@@ -89,8 +89,8 @@ class ServiceController extends Controller
             $team->service_type_id = $type->id;
             $team->save();
             $this->render();
-
             return response()->json(['status' => true]);
+
         } else {
             return view('admin.service.add', compact('type'));
         }

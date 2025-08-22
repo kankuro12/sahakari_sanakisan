@@ -79,6 +79,8 @@
     </div>
 @endsection
 @section('script')
+    <script src="https://cdn.tiny.cloud/1/{{ config('app.TINYMCE_API_KEY') }}/tinymce/5/tinymce.min.js"
+        referrerpolicy="origin"></script>
     <script script src="{{ asset('admin/plugins/drophify/js/dropify.min.js') }}"></script>
     <script>
         var state = false;
@@ -90,10 +92,9 @@
                 e.preventDefault();
                 axios.post(this.action, new FormData(this))
                     .then((res) => {
-                        if(res.data.status == true){
+                        if (res.data.status == true) {
                             console.log('true');
-
-                            toastr.success('Service Saved Successfully');
+                            toastr.success('Service Updated Successfully');
                         }
                     })
                     .catch((err) => {

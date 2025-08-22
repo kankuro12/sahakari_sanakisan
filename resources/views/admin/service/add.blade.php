@@ -70,9 +70,11 @@
     </div>
 @endsection
 @section('script')
-    @include('admin.layout.includes.tinysupport')
+    <script src="https://cdn.tiny.cloud/1/{{ config('app.TINYMCE_API_KEY') }}/tinymce/5/tinymce.min.js"
+        referrerpolicy="origin"></script>
     <script src="{{ asset('admin/plugins/drophify/js/dropify.min.js') }}"></script>
     <script>
+        @include('admin.layout.includes.tinysupport')
         var state = false;
         $(function() {
             $('.photo').dropify();

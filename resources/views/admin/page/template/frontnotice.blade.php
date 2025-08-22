@@ -31,13 +31,16 @@
         <div class="notice-header">सूचना</div>
         <marquee behavior="scroll" direction="left" scrolldelay="150">
             <span class="scroll ng-star-inserted">
-                <a style="text-decoration: none; color: rgb(44, 41, 41)">
-                    @foreach ($notices as $notice)
-                        {{ $notice->title }}
-                    @endforeach
-                </a>
+            <a style="text-decoration: none; color: rgb(44, 41, 41)">
+                @foreach ($notices as $notice)
+                <span class="notice-item" style="display:inline-block; margin-right:8rem;">
+                    {{ $notice->title }}
+                </span>
+                @endforeach
+            </a>
             </span>
         </marquee>
     </div>
 </div>
+
 
