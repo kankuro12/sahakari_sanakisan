@@ -12,6 +12,7 @@
 @section('css')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         .pagination button {
             padding: 5px 10px;
@@ -38,6 +39,7 @@
 @section('js')
     <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const pdfItems = document.querySelectorAll('#pdfContainer .col-md-3');
@@ -84,6 +86,35 @@
             displayItems(filteredItems, currentPage, itemsPerPage);
             updatePagination(filteredItems, itemsPerPage);
             searchInput.addEventListener('input', filterItems);
+
+            // PDF Lightbox functionality
+            document.addEventListener('click', function(e) {
+                if (e.target.closest('.view-pdf')) {
+                    e.preventDefault();
+                    const link = e.target.closest('.view-pdf');
+                    const pdfUrl = link.getAttribute('data-pdf-url');
+                    const pdfTitle = link.getAttribute('data-pdf-title');
+                    
+                    // Set modal title
+                    document.getElementById('pdfModalLabel').textContent = pdfTitle;
+                    
+                    // Set PDF viewer source
+                    document.getElementById('pdfViewer').src = pdfUrl;
+                    
+                    // Set download button link
+                    document.getElementById('downloadPdfBtn').href = pdfUrl;
+                    document.getElementById('downloadPdfBtn').download = pdfTitle + '.pdf';
+                    
+                    // Show modal
+                    const pdfModal = new bootstrap.Modal(document.getElementById('pdfModal'));
+                    pdfModal.show();
+                }
+            });
+
+            // Clear iframe src when modal is closed to stop loading
+            document.getElementById('pdfModal').addEventListener('hidden.bs.modal', function () {
+                document.getElementById('pdfViewer').src = '';
+            });
         });
     </script>
 @endsection
